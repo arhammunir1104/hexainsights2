@@ -1,0 +1,14 @@
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btn-primary { @apply bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition }
+.btn-green { @apply bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition }
+.btn-red { @apply bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition }
+.input-field { @apply w-full border p-2 rounded focus:ring-2 focus:ring-blue-600 focus:outline-none transition }

@@ -1,0 +1,34 @@
+/* In your CSS file (e.g., App.css) */
+.primary-font  {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/* hide scrollbar but keep scrolling - place this in your global CSS file */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  height: 0; /* horizontal scrollbar removal */
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+
