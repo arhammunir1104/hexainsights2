@@ -43,7 +43,7 @@ function About({ data }) {
       <div 
         className="absolute top-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
         style={{
-          background: "radial-gradient(circle at 80% 20%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
         }}
       />
 
@@ -61,9 +61,9 @@ function About({ data }) {
         {/* RIGHT: CONTENT */}
         <div className="flex flex-col items-start">
           {/* Title: Reduced from text-6xl to text-4xl/5xl */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0047FF] mb-5 tracking-tight flex items-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002b80] mb-5 tracking-tight flex items-center">
             {animatedTitle}
-            <span className="inline-block w-[3px] h-8 md:h-10 bg-[#0047FF] ml-2 animate-pulse rounded-full" />
+            <span className="inline-block w-[3px] h-8 md:h-10 text-[#002b80] ml-2 animate-pulse rounded-full" />
           </h2>
 
           {/* Description: Reduced from text-xl to text-base/lg */}

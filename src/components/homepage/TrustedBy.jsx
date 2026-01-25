@@ -18,13 +18,20 @@ const TrustedBy = ({ data }) => {
 
   return (
     <section className="relative w-full py-16 bg-white overflow-hidden">
+       {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute top-0 left-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 20% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
       
       {/* 1. DECORATIONS - Scaled down slightly */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <img 
           src="/home-contact/vector1.png" 
           alt="decoration"
-          className="absolute top-[8%] left-[5%] md:left-[10%] w-20 md:w-24 lg:w-28 opacity-80 object-contain"
+          className="absolute  top-[10%] left-[15%] md:left-[20%] w-24 md:w-28 lg:w-32 opacity-80 object-contain"
         />
         <img 
           src="/home-contact/vector2.png" 
@@ -55,7 +62,7 @@ const TrustedBy = ({ data }) => {
           {images?.map((item, index) => (
             <div key={index} className="flex flex-col items-center w-full max-w-[180px]">
               {/* Card Container - Reduced padding and rounded corners */}
-              <div className="w-full aspect-square rounded-[1.5rem] flex items-center justify-center p-6 bg-slate-50/60 border border-slate-100/40 hover:bg-white hover:shadow-md transition-all duration-300">
+              <div className="w-full aspect-square rounded-[1.5rem] flex items-center justify-center p-6 bg-slate-50/60 border border-slate-100/40 transition-all duration-300">
                 <img 
                   src={item.url} 
                   alt={item.text} 

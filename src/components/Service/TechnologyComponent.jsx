@@ -43,7 +43,7 @@ const TechnologyComponent = () => {
         {/* <h1 className="text-2xl lg:text-4xl font-bold text-blue-800 mb-4">
           TECHNOLOGIES WE USED
         </h1> */}
-        <h1 className="font-[Quicksand] text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent mb-4">
+        <h1 className=" text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent mb-4">
         TECHNOLOGIES WE USED
         </h1>
         <p className="text-gray-500 max-w-4xl mx-auto leading-relaxed">

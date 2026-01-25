@@ -157,18 +157,18 @@ export default function AdminContact() {
     setTargetPath(null);
   };
 
-  if (fetching) return <div className="p-20 text-center text-slate-500 font-medium">Loading Contact CMS...</div>;
+  if (fetching) return <div className="p-20 text-center text-slate-500 font-medium">Loading Contact Page...</div>;
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] py-10 px-4 font-[Quicksand]">
+    <div className="min-h-screen bg-[#f8fafc] py-10 px-4 ">
       <div className="max-w-6xl mx-auto space-y-10">
 
         <div className="flex justify-between items-end">
           <div>
-            <h1 className="text-3xl font-extrabold text-[#070778]">Contact Page CMS</h1>
+            <h1 className="text-3xl font-extrabold text-[#070778]">Contact Page </h1>
             <p className="text-slate-500 text-sm mt-1">Manage inquiries and company touchpoints</p>
           </div>
-          <Chip label="Live Production" variant="outlined" sx={{ fontWeight: 700, borderColor: BRAND, color: BRAND }} />
+          {/* <Chip label="Live Production" variant="outlined" sx={{ fontWeight: 700, borderColor: BRAND, color: BRAND }} /> */}
         </div>
 
         {/* HERO SECTION */}
@@ -186,9 +186,9 @@ export default function AdminContact() {
                   )}
                   <button
                     onClick={() => { setTargetPath(["BannerSection", "image"]); setModalOpen(true); }}
-                    className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm"
+                    className="absolute cursor-pointer inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm"
                   >
-                    Change Background
+                    Change Image
                   </button>
                 </div>
             </div>
@@ -237,7 +237,7 @@ export default function AdminContact() {
         <AdminSection title="Inquiry Form Builder" icon={<PlusIcon className="h-5 w-5" />}>
           <div className="flex justify-between items-center mb-6">
             <p className="text-slate-500 text-sm">Configure fields for the front-end contact form.</p>
-            <Button variant="contained" onClick={() => setData(prev => ({ ...prev, form: { fields: [...prev.form.fields, { id: crypto.randomUUID(), type: "text", heading: "", required: false, options: [] }] } }))} startIcon={<PlusIcon className="h-4 w-4" />} sx={{ bgcolor: BRAND, borderRadius: '12px' }}>Add Field</Button>
+            <Button variant="contained" onClick={() => setData(prev => ({ ...prev, form: { fields: [...prev.form.fields, { id: crypto.randomUUID(), type: "text", heading: "", required: false, options: [] }] } }))} startIcon={<PlusIcon className="h-4 w-4" />} sx={{ bgcolor: BRAND, borderRadius: '12px', cursor: "pointer" }}>Add Field</Button>
           </div>
           
           <div className="grid md:grid-cols-2 gap-4">
@@ -282,9 +282,9 @@ export default function AdminContact() {
         <button
           onClick={saveAll}
           disabled={loading}
-          className="w-full bg-[#070778] hover:bg-black text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+          className="w-full cursor-pointer bg-[#070778] hover:bg-black text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50"
         >
-          {loading ? <CircularProgress size={24} color="inherit" /> : "Push Changes to Contact Page"}
+          {loading ? <CircularProgress size={24} color="inherit" /> : "Deploy Changes"}
         </button>
 
         {/* IMAGE UPLOAD DIALOG */}
@@ -297,9 +297,9 @@ export default function AdminContact() {
                 </div>
             </DialogContent>
             <DialogActions sx={{ p: 3 }}>
-                <Button onClick={closeModal} sx={{ color: 'slate.400', fontWeight: 700 }}>Cancel</Button>
-                <Button onClick={uploadImage} disabled={uploading || !file} variant="contained" sx={{ bgcolor: BRAND, px: 4, borderRadius: '12px' }}>
-                    {uploading ? <CircularProgress size={20} color="inherit" /> : "Confirm Upload"}
+                <Button onClick={closeModal} sx={{ cursor: "pointer", color: 'slate.400', fontWeight: 700 }}>Cancel</Button>
+                <Button onClick={uploadImage} disabled={uploading || !file} variant="contained" sx={{ cursor: "pointer", bgcolor: BRAND, px: 4, borderRadius: '12px' }}>
+                    {uploading ? <CircularProgress size={20} color="inherit" /> : "Upload"}
                 </Button>
             </DialogActions>
         </Dialog>
@@ -367,7 +367,7 @@ const DynamicList = ({ label, icon, items, onChange }) => (
     <Button 
         size="small" 
         onClick={() => onChange([...items, ""])}
-        sx={{ color: BRAND, fontWeight: 700, fontSize: '0.7rem' }}
+        sx={{ color: BRAND, fontWeight: 700, fontSize: '0.7rem', cursor: "pointer" }}
     >
         + Add Entry
     </Button>

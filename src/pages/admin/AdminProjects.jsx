@@ -143,7 +143,7 @@ export default function FeaturedProjectsCMS() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-slate-400 gap-4">
       <CircularProgress size={30} sx={{ color: BRAND_COLOR }} />
-      <p className="font-medium animate-pulse">Fetching Projects...</p>
+      <p className="font-medium animate-pulse">Loading Project Page...</p>
     </div>
   );
 
@@ -159,9 +159,9 @@ export default function FeaturedProjectsCMS() {
           </div>
           <button
             onClick={() => setNewProjectModal(true)}
-            className="flex items-center justify-center gap-2 bg-[#070778] text-white px-6 py-3.5 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] transition-all active:scale-95"
+            className="flex  cursor-pointer items-center justify-center gap-2 bg-[#070778] text-white px-6 py-3.5 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] transition-all active:scale-95"
           >
-            <PlusIcon className="h-5 w-5 stroke-[3px]" />
+            <PlusIcon className="h-5 cursor-pointer w-5 stroke-[3px]" />
             Add New Project
           </button>
         </div>
@@ -178,8 +178,8 @@ export default function FeaturedProjectsCMS() {
                     <div className="w-full h-full flex items-center justify-center text-slate-300"><PhotoIcon className="h-12 w-12" /></div>
                   )}
                   <div className="absolute top-4 right-4">
-                    <button onClick={() => deleteProject(project.id)} className="p-2 bg-white/90 backdrop-blur hover:bg-red-50 text-red-500 rounded-xl shadow-sm transition-colors">
-                      <TrashIcon className="h-5 w-5" />
+                    <button onClick={() => deleteProject(project.id)} className="p-2  cursor-pointer bg-white/90 backdrop-blur hover:bg-red-50 text-red-500 rounded-xl shadow-sm transition-colors">
+                      <TrashIcon className="h-5  cursor-pointer w-5" />
                     </button>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function FeaturedProjectsCMS() {
                   <p className="text-slate-500 text-sm line-clamp-2 mb-6 font-medium leading-relaxed">{project.shortDescription}</p>
                   <button 
                     onClick={() => setSelectedProject(project)}
-                    className="mt-auto w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-50 font-bold text-[#070778] hover:bg-[#070778] hover:text-white transition-all"
+                    className="mt-auto w-full cursor-pointer flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-50 font-bold text-[#070778] hover:bg-[#070778] hover:text-white transition-all"
                   >
                     <PencilSquareIcon className="h-5 w-5" /> Edit Project
                   </button>
@@ -206,7 +206,7 @@ export default function FeaturedProjectsCMS() {
                 <span className="text-indigo-200 text-xs font-black uppercase tracking-widest">Editing Project</span>
                 <h2 className="text-xl sm:text-2xl font-bold">{selectedProject.title}</h2>
               </div>
-              <button onClick={() => setSelectedProject(null)} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <button onClick={() => setSelectedProject(null)} className="p-2  cursor-pointer hover:bg-white/10 rounded-full transition-colors">
                 <XMarkIcon className="h-7 w-7" />
               </button>
             </div>
@@ -278,7 +278,7 @@ export default function FeaturedProjectsCMS() {
                         cards: [...p.subSection.cards, { heading: "", title: "", description: "", image: { url: "", public_id: "" } }] 
                       } 
                     }))}
-                    className="flex items-center justify-center gap-2 text-sm font-bold text-indigo-600 bg-indigo-50 px-5 py-2.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all"
+                    className="flex  cursor-pointer items-center justify-center gap-2 text-sm font-bold text-indigo-600 bg-indigo-50 px-5 py-2.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all"
                   >
                     <PlusCircleIcon className="h-5 w-5" /> Add Detail Block
                   </button>
@@ -292,7 +292,7 @@ export default function FeaturedProjectsCMS() {
                           const cards = selectedProject.subSection.cards.filter((_, idx) => idx !== i);
                           setSelectedProject((p) => ({ ...p, subSection: { ...p.subSection, cards } }));
                         }}
-                        className="absolute -top-2 -right-2 p-2 bg-red-500 text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 z-10"
+                        className="absolute -top-2 -right-2 p-2  cursor-pointer bg-red-500 text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 z-10"
                       >
                         <TrashIcon className="h-4 w-4 stroke-[3px]" />
                       </button>
@@ -366,11 +366,11 @@ export default function FeaturedProjectsCMS() {
                 <button 
                   onClick={saveProject} 
                   disabled={saving}
-                  className="flex-1 bg-[#070778] text-white py-4 rounded-2xl font-bold shadow-xl shadow-indigo-100 hover:scale-[1.01] transition-all flex items-center justify-center gap-3 disabled:bg-slate-300"
+                  className="flex-1  cursor-pointer bg-[#070778] text-white py-4 rounded-2xl font-bold shadow-xl shadow-indigo-100 hover:scale-[1.01] transition-all flex items-center justify-center gap-3 disabled:bg-slate-300"
                 >
-                  {saving ? <CircularProgress size={20} color="inherit" /> : <><CheckCircleIcon className="h-6 w-6" /> Save Project Changes</>}
+                  {saving ? <CircularProgress size={20} color="inherit" /> : <><CheckCircleIcon className="h-6 w-6" /> Deploy Changes</>}
                 </button>
-                <button onClick={() => setSelectedProject(null)} className="px-10 py-4 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-slate-200 transition-colors">Cancel</button>
+                <button onClick={() => setSelectedProject(null)} className="px-10  cursor-pointer py-4 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-slate-200 transition-colors">Cancel</button>
               </div>
             </div>
           </div>
@@ -388,13 +388,13 @@ export default function FeaturedProjectsCMS() {
           </div>
         </DialogContent>
         <DialogActions sx={{ p: 4 }}>
-          <button onClick={() => setNewProjectModal(false)} className="px-6 font-bold text-slate-400">Discard</button>
+          <button onClick={() => setNewProjectModal(false)} className="px-6 cursor-pointer font-bold text-slate-400">Discard</button>
           <button 
             disabled={!newProjectData.title || !newProjectData.image} 
             onClick={createProject}
-            className="bg-[#070778] text-white px-8 py-3 rounded-xl font-bold disabled:opacity-30"
+            className="bg-[#070778]  cursor-pointer text-white px-8 py-3 rounded-xl font-bold disabled:opacity-30"
           >
-            Create Now
+            Create New Project
           </button>
         </DialogActions>
       </Dialog>
@@ -411,8 +411,8 @@ export default function FeaturedProjectsCMS() {
             )}
             <input type="file" accept="image/*" onChange={(e) => setSelectedFile(e.target.files[0])} className="absolute inset-0 opacity-0 cursor-pointer" />
           </div>
-          <button onClick={uploadImage} disabled={uploading || !selectedFile} className="w-full py-4 bg-[#070778] text-white rounded-2xl font-bold shadow-lg disabled:bg-slate-200">
-            {uploading ? "Uploading..." : "Confirm Selection"}
+          <button onClick={uploadImage} disabled={uploading || !selectedFile} className="w-full   cursor-pointer py-4 bg-[#070778] text-white rounded-2xl font-bold shadow-lg disabled:bg-slate-200">
+            {uploading ? "Uploading..." : "Upload"}
           </button>
         </div>
       </Dialog>

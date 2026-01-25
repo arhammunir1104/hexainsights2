@@ -87,8 +87,16 @@ const Contact = () => {
   if (loading || !dbContent) return null;
 
   return (
-    <section id='contact' className="w-full py-10 md:py-16 bg-white font-[Quicksand]">
+    <section id='contact' className="w-full relative py-10 md:py-16 bg-white ">
       <div className="max-w-6xl mx-auto px-6">
+
+         {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute  top-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
         
         {/* Shrunken Heading Section */}
         <div className="text-center mb-10">
@@ -105,10 +113,13 @@ const Contact = () => {
           {/* LEFT CARD - Compacted */}
           <div className="lg:w-[35%] bg-gradient-to-br rounded-[1.5rem]  from-[#001E74] via-[#0037a5] to-[#3b82f6] p-8 text-white relative">
             <div className="relative z-10">
+              <div className='my-10'>
+
                 <h3 className="text-xl font-bold mb-1">Contact Information</h3>
                 <p className="text-blue-100/70 text-xs mb-8">Reach out to us directly</p>
+              </div>
 
-               <div className="space-y-4"> {/* Reduced from space-y-6 for a tighter look */}
+               <div className="space-y-8 my-5"> {/* Reduced from space-y-6 for a tighter look */}
   
           {/* Phone Numbers */}
           {dbContent.leftCard?.phones?.map((phone, index) => (
@@ -140,11 +151,26 @@ const Contact = () => {
                   {renderSocials()}
                 </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/10 rounded-full" />
+            
+
+{/* Background Decorative Circles Container (Make sure parent has 'relative' and 'overflow-hidden') */}
+{/* Parent container must have 'relative' and 'overflow-hidden' */}
+<div className="absolute inset-0 overflow-hidden pointer-events-none">
+  
+  {/* 1. Large Outer Circle - Bottom Right Corner */}
+  <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-white/10 rounded-full" />
+  
+  {/* 2. Small Overlapping Circle - Slightly inside the first one */}
+  <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full" />
+
+</div>
+
           </div>
 
           {/* RIGHT FORM - Reduced Gaps */}
-          <div className="lg:w-[65%] p-8 md:p-10 bg-white">
+          <div className="lg:w-[65%]  p-8 md:p-10 bg-white">
+            {/* FIXED GRADIENT: Reduced size and opacity */}
+      
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
               {dbContent.form?.fields?.map((field) => (
                 <div key={field.id} className={`${(field.type === 'textarea' || field.type === 'radio') ? 'md:col-span-2' : ''}`}>
@@ -183,7 +209,7 @@ const Contact = () => {
               <div className="md:col-span-2 flex justify-end mt-2">
                 <button type="submit" disabled={isSubmitting}
                   className="bg-[#001E74] text-white px-10 py-2.5 rounded text-sm font-bold hover:bg-[#0037a5] transition-all disabled:opacity-50">
-                  {isSubmitting ? "..." : "Send Message"}
+                  {isSubmitting ? "..." : "Submit"}
                 </button>
               </div>
             </form>

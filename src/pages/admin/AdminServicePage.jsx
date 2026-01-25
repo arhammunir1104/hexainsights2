@@ -145,22 +145,22 @@ export default function ServicePageCMS() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[50vh]">
       <CircularProgress sx={{ color: BRAND_COLOR }} />
-      <p className="mt-4 text-slate-500 font-medium font-[Quicksand]">Loading Service Hub...</p>
+      <p className="mt-4 text-slate-500 font-medium ">Loading Service Page...</p>
     </div>
   );
 
   return (
-    <div className="max-w-7xl mx-auto space-y-8 pb-20 font-[Quicksand]">
+    <div className="max-w-7xl mx-auto space-y-8 pb-20 ">
       <ToastContainer position="top-right" autoClose={3000} />
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#002b80] tracking-tight">Service Pages CMS</h1>
+          <h1 className="text-3xl font-extrabold text-[#002b80] tracking-tight">Service Pages</h1>
           <p className="text-slate-500 mt-1">Create and manage independent landing pages for your services.</p>
         </div>
         <button 
           onClick={() => setNewServiceModal(true)}
-          className="flex items-center justify-center gap-2 bg-[#002b80] hover:bg-black text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-blue-100"
+          className="flex cursor-pointer items-center justify-center gap-2 bg-[#002b80] hover:bg-black text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-blue-100"
         >
           <PlusIcon className="h-5 w-5" /> Add New Service Page
         </button>
@@ -182,13 +182,13 @@ export default function ServicePageCMS() {
               <div className="flex gap-2 w-full">
                 <button 
                   onClick={() => setSelectedService(service)}
-                  className="flex-1 py-2 rounded-xl bg-blue-50 text-[#002b80] text-xs font-bold hover:bg-[#002b80] hover:text-white transition-colors"
+                  className="flex-1  cursor-pointer py-2 rounded-xl bg-blue-50 text-[#002b80] text-xs font-bold hover:bg-[#002b80] hover:text-white transition-colors"
                 >
                   Configure
                 </button>
                 <button 
                   onClick={() => deleteService(service.id)}
-                  className="p-2 rounded-xl text-slate-300 hover:text-red-500 transition-colors"
+                  className="p-2 cursor-pointer rounded-xl text-slate-300 hover:text-red-500 transition-colors"
                 >
                   <TrashIcon className="h-5 w-5" />
                 </button>
@@ -206,7 +206,7 @@ export default function ServicePageCMS() {
               <PencilSquareIcon className="h-6 w-6 opacity-60" />
               <h2 className="text-xl font-bold">Editing: {selectedService.title}</h2>
             </div>
-            <button onClick={() => setSelectedService(null)} className="p-2 hover:bg-white/10 rounded-full">
+            <button onClick={() => setSelectedService(null)} className="p-2 cursor-pointer hover:bg-white/10 rounded-full">
               <XMarkIcon className="h-6 w-6" />
             </button>
           </div>
@@ -266,7 +266,7 @@ export default function ServicePageCMS() {
                     <button onClick={() => {
                       const cards = selectedService.subSection.cards.filter((_, idx) => idx !== i);
                       setSelectedService((prev) => ({ ...prev, subSection: { ...prev.subSection, cards } }));
-                    }} className="absolute top-4 right-4 text-red-400 opacity-0 group-hover/card:opacity-100 transition-opacity">
+                    }} className="absolute cursor-pointer top-4 right-4 text-red-400 opacity-0 group-hover/card:opacity-100 transition-opacity">
                       <TrashIcon className="h-5 w-5" />
                     </button>
                     
@@ -274,7 +274,7 @@ export default function ServicePageCMS() {
                       {card.image?.url ? <img src={card.image.url} className="w-full h-full object-cover" alt="" /> : <div className="h-full flex items-center justify-center text-slate-300">No Image</div>}
                       <button onClick={() => openImageModal((img) => setSelectedService((prev) => {
                           const cards = [...prev.subSection.cards]; cards[i] = { ...cards[i], image: img }; return { ...prev, subSection: { ...prev.subSection, cards } };
-                        }))} className="absolute inset-0 bg-black/40 text-white text-[10px] font-bold opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                        }))} className="absolute cursor-pointer inset-0 bg-black/40 text-white text-[10px] font-bold opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
                         UPDATE PHOTO
                       </button>
                     </div>
@@ -288,7 +288,7 @@ export default function ServicePageCMS() {
                 ))}
                 <button 
                   onClick={() => setSelectedService((prev) => ({ ...prev, subSection: { ...prev.subSection, cards: [...prev.subSection.cards, { heading: "", text: "", description: "", image: { url: "", public_id: "" } }] } }))}
-                  className="border-2 border-dashed border-slate-200 rounded-[2rem] p-10 flex flex-col items-center justify-center text-slate-400 hover:border-[#002b80] hover:text-[#002b80] hover:bg-blue-50/50 transition-all"
+                  className="border-2 cursor-pointer border-dashed border-slate-200 rounded-[2rem] p-10 flex flex-col items-center justify-center text-slate-400 hover:border-[#002b80] hover:text-[#002b80] hover:bg-blue-50/50 transition-all"
                 >
                   <PlusIcon className="h-10 w-10 mb-2" />
                   <span className="font-bold uppercase text-[10px] tracking-widest">New Feature Card</span>
@@ -318,7 +318,7 @@ export default function ServicePageCMS() {
             <button 
               onClick={saveService} 
               disabled={saving}
-              className="w-full bg-[#002b80] hover:bg-black text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-xl shadow-blue-100 transition-all active:scale-[0.99] flex items-center justify-center gap-3"
+              className="w-full cursor-pointer bg-[#002b80] hover:bg-black text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-xl shadow-blue-100 transition-all active:scale-[0.99] flex items-center justify-center gap-3"
             >
               {saving ? <CircularProgress size={24} color="inherit"/> : <><CheckCircleIcon className="h-6 w-6" /> Deploy Service Updates</>}
             </button>
@@ -343,13 +343,13 @@ export default function ServicePageCMS() {
           </div>
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <button className="px-6 py-2 text-slate-400 font-bold text-sm" onClick={() => setModalOpen(false)}>Cancel</button>
+          <button className="px-6 py-2 cursor-pointer text-slate-400 font-bold text-sm" onClick={() => setModalOpen(false)}>Cancel</button>
           <button 
             disabled={uploading || !selectedFile} 
             onClick={uploadImage}
-            className="bg-[#002b80] text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-100 transition-all active:scale-95 disabled:opacity-50"
+            className="bg-[#002b80] cursor-pointer text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-100 transition-all active:scale-95 disabled:opacity-50"
           >
-            {uploading ? <CircularProgress size={16} color="inherit" /> : "Complete Upload"}
+            {uploading ? <CircularProgress size={16} color="inherit" /> : "Upload"}
           </button>
         </DialogActions>
       </Dialog>
@@ -371,12 +371,12 @@ export default function ServicePageCMS() {
           </div>
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <button className="px-6 py-2 text-slate-400 font-bold text-sm" onClick={() => setNewServiceModal(false)}>Discard</button>
+          <button className="px-6 py-2 cursor-pointer text-slate-400 font-bold text-sm" onClick={() => setNewServiceModal(false)}>Discard</button>
           <button 
             onClick={createServicePage}
-            className="bg-[#002b80] text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-100 transition-all active:scale-95"
+            className="bg-[#002b80] cursor-pointer text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-100 transition-all active:scale-95"
           >
-            Create Base Page
+            Create Service Page
           </button>
         </DialogActions>
       </Dialog>
@@ -424,7 +424,7 @@ const ImageUpload = ({ label, image, onUpload }) => (
     <div className="relative group rounded-2xl overflow-hidden border border-slate-200 aspect-video bg-slate-100 shadow-inner">
       {image ? <img src={image} className="h-full w-full object-cover" /> : <div className="h-full flex items-center justify-center text-slate-300">No Image</div>}
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-        <button onClick={onUpload} className="bg-white text-blue-700 px-5 py-2 rounded-xl text-xs font-bold shadow-xl">Replace Asset</button>
+        <button onClick={onUpload} className="bg-white cursor-pointer text-blue-700 px-5 py-2 rounded-xl text-xs font-bold shadow-xl">Upload</button>
       </div>
     </div>
   </div>

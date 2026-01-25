@@ -89,6 +89,15 @@ const ContactCard = () => {
       {/* CRITICAL CHANGE: Added 'relative' class here so 'absolute' elements inside 
         (like the notification) are positioned relative to this container.
       */}
+
+       {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute top-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
+
       <div className="max-w-6xl w-full mx-4 sm:mx-8 bg-white rounded-[10px] overflow-hidden relative">
 
         {/* Success Message Notification - Now positioned relative to the container above */}
@@ -172,6 +181,13 @@ const ContactCard = () => {
 
           {/* 2. Right Panel (Contact Form) - White Background */}
           <div className="lg:col-span-3 p-8 sm:p-12">
+             {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute top-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
             <form onSubmit={handleSubmit} className="space-y-8">
               
               {/* Row 1: First Name & Last Name */}

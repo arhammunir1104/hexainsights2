@@ -2,11 +2,11 @@ import React  from 'react';
 
 const IndustryContent = () => {
   return (
-    <div  className="bg-white font-[Quicksand]  pt-20 text-gray-800  p-8 lg:px-16 ">
+    <div  className="bg-white  pt-20 text-gray-800  p-8 lg:px-16 ">
       {/* Top Section */}
       <div className="text-center mb-4 lg:mb-6">
         
-        <h2 className=" font-[Quicksand] text-xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent mb-4">
+        <h2 className=" text-xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent mb-4">
         INDUSTRIES
             </h2>
         <h1 className="text-2xl lg:text-3xl font-bold max-w-3xl mx-auto leading-tight">

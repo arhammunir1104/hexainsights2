@@ -23,10 +23,10 @@ const CTA = () => {
               <GlobeIcon />
               <ArrowLineSVG />
             </div>
-            <h2 className="text-2xl font-[Quicksand] md:text-3xl font-bold text-white mb-2">
+            <h2 className="text-2xl  md:text-3xl font-bold text-white mb-2">
               Final CTA - Convert Visitors into Leads
             </h2>
-            <p className="text-sm font-[Quicksand] md:text-base text-white mt-3 mb-6">
+            <p className="text-sm  md:text-base text-white mt-3 mb-6">
               Let's Build Something Amazing Together
             </p>
             {/* <button className="relative z-10 px-6 py-3 rounded-[10px] text-white font-semibold transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-blue-700 to-blue-500">

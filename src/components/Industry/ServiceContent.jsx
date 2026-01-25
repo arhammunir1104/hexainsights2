@@ -20,9 +20,9 @@ const ServiceContent = ({ data }) => {
 
 
   return (
-    <div className="bg-white text-gray-800 font-[Quicksand]">
+    <div className="bg-white text-gray-800 ">
 
-       <div className="bg-white text-gray-800 font-[Quicksand]">
+       <div className="bg-white text-gray-800 ">
       <div className="container mx-auto px-6 py-12">
         {/* Top Section - Centered and Resized */}
         <div className="text-center max-w-4xl mx-auto">

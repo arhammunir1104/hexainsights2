@@ -165,7 +165,7 @@ export default function AdminCaseStudies() {
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] text-slate-900 pb-20">
-      <ToastContainer position="bottom-right" autoClose={2000} />
+      <ToastContainer position="top-right" autoClose={2000} />
       
       {/* Normal Header Section */}
       <div className="max-w-7xl mx-auto px-6 pt-12 mb-10">
@@ -180,7 +180,7 @@ export default function AdminCaseStudies() {
           </div>
           <button
             onClick={createCaseStudy}
-            className="flex items-center justify-center gap-2 bg-[#070778] hover:bg-[#05055a] text-white font-bold py-4 px-8 rounded-2xl transition-all active:scale-95 shadow-xl shadow-blue-900/10"
+            className="flex cursor-pointer items-center justify-center gap-2 bg-[#070778] hover:bg-[#05055a] text-white font-bold py-4 px-8 rounded-2xl transition-all active:scale-95 shadow-xl shadow-blue-900/10"
           >
             <PlusIcon className="h-5 w-5" />
             <span>Create New Study</span>
@@ -267,7 +267,7 @@ export default function AdminCaseStudies() {
                   fullWidth 
                   variant="filled"
                   value={selectedCase.title} 
-                  InputProps={{ disableUnderline: true, sx: { borderRadius: '1rem', fontWeight: 800, fontSize: '1.1rem' } }}
+                  InputProps={{ disableUnderline: true, sx: { margin: "5px 0px"  , borderRadius: '1rem', fontWeight: 800, fontSize: '1.1rem' } }}
                   onChange={(e) => setSelectedCase(prev => ({ ...prev, title: e.target.value }))} 
                 />
                 
@@ -277,17 +277,17 @@ export default function AdminCaseStudies() {
                   multiline 
                   rows={3} 
                   variant="filled"
-                  InputProps={{ disableUnderline: true, sx: { borderRadius: '1rem' } }}
+                  InputProps={{ disableUnderline: true, sx: { borderRadius: '1rem',  margin: "5px 0px", marginBottom: "5px"   } }}
                   value={selectedCase.description} 
                   onChange={(e) => setSelectedCase(prev => ({ ...prev, description: e.target.value }))} 
                 />
 
                 <FormControl fullWidth variant="filled">
-                  <InputLabel sx={{ fontWeight: 700 }}>Service Categorization</InputLabel>
+                  <InputLabel sx={{ fontWeight: 700, margin: "5px 0px"  }}>Service Categorization</InputLabel>
                   <Select
                     multiple
                     value={selectedCase.display}
-                    input={<OutlinedInput label="Service Categorization" sx={{ display: 'none' }} />}
+                    input={<OutlinedInput label="Service Categorization" sx={{ display: 'none',  margin: "5px 0px"   }} />}
                     renderValue={(selected) => (
                       <div className="flex gap-1 flex-wrap">
                         {selected.map((s) => <Chip key={s} label={s} size="small" sx={{ bgcolor: '#070778', color: 'white', fontWeight: 900, borderRadius: '6px' }} />)}
@@ -308,7 +308,7 @@ export default function AdminCaseStudies() {
                 <Button 
                   startIcon={<PlusIcon className="h-4 w-4" />} 
                   variant="outlined" 
-                  sx={{ borderRadius: '10px', textTransform: 'none', fontWeight: 700, borderColor: '#070778', color: '#070778' }}
+                  sx={{cursor: "pointer" , borderRadius: '10px', textTransform: 'none', fontWeight: 700, borderColor: '#070778', color: '#070778' }}
                   onClick={() => setSelectedCase(prev => ({
                     ...prev, 
                     cards: [...prev.cards, { heading: "", title: "", description: "", image: { url: "", public_id: "" } }]
@@ -365,12 +365,12 @@ export default function AdminCaseStudies() {
         )}
 
         <DialogActions className="p-8 bg-slate-50 rounded-b-[2.5rem]">
-          <Button onClick={() => setModalOpen(false)} sx={{ color: 'slate.500', fontWeight: 700 }}>Cancel</Button>
+          <Button onClick={() => setModalOpen(false)} sx={{ color: 'slate.500', fontWeight: 700, cursor: "pointer" }}>Cancel</Button>
           <Button 
             variant="contained" 
             disableElevation
             onClick={saveCaseStudy}
-            sx={{ backgroundColor: "#070778", borderRadius: '1rem', px: 6, py: 1.5, fontWeight: 800, '&:hover': { backgroundColor: '#05055a' }}}
+            sx={{ backgroundColor: "#070778",cursor: "pointer"  ,borderRadius: '1rem', px: 6, py: 1.5, fontWeight: 800, '&:hover': { backgroundColor: '#05055a' }}}
           >
             Publish Case Study
           </Button>
@@ -390,8 +390,8 @@ export default function AdminCaseStudies() {
           <h2 className="text-2xl font-black text-slate-800">Are you sure?</h2>
           <p className="text-slate-500 mt-2">This will permanently delete the case study. This action cannot be undone.</p>
           <div className="flex flex-col gap-3 mt-8">
-            <button onClick={confirmDelete} className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-all">Delete Entry</button>
-            <button onClick={() => setConfirmOpen(false)} className="bg-slate-100 text-slate-600 font-bold py-3 rounded-xl transition-all">Keep it</button>
+            <button onClick={confirmDelete} className="bg-red-500 cursor-pointer hover:bg-red-600 text-white font-bold py-3 rounded-xl transition-all">Delete Entry</button>
+            <button onClick={() => setConfirmOpen(false)} className="bg-slate-100 cursor-pointer text-slate-600 font-bold py-3 rounded-xl transition-all">Keep it</button>
           </div>
         </div>
       </Dialog>
@@ -406,7 +406,7 @@ export default function AdminCaseStudies() {
           {selectedFile ? (
             <div className="relative rounded-2xl overflow-hidden shadow-lg mb-6">
               <img src={URL.createObjectURL(selectedFile)} className="w-full h-48 object-cover" alt="Preview" />
-              <button onClick={() => setSelectedFile(null)} className="absolute top-2 right-2 bg-black/50 p-1 rounded-full text-white">
+              <button onClick={() => setSelectedFile(null)} className="absolute cursor-pointer top-2 right-2 bg-black/50 p-1 rounded-full text-white">
                 <XMarkIcon className="h-4 w-4" />
               </button>
             </div>
@@ -422,9 +422,9 @@ export default function AdminCaseStudies() {
             onClick={uploadImage} 
             disabled={uploading || !selectedFile} 
             variant="contained" 
-            sx={{ backgroundColor: '#070778', py: 2, borderRadius: '1rem', fontWeight: 800 }}
+            sx={{ backgroundColor: '#070778', py: 2, cursor: "pointer" ,borderRadius: '1rem', marginTop: "20px" ,fontWeight: 800 }}
           >
-            {uploading ? <CircularProgress size={20} color="inherit" /> : "Confirm Upload"}
+            {uploading ? <CircularProgress size={20} color="inherit" /> : "Upload"}
           </Button>
         </div>
       </Dialog>
@@ -439,7 +439,7 @@ const ImageUpload = ({ image, onUpload, small }) => (
       <div className={`relative ${small ? 'h-32' : 'h-64'} w-full rounded-[2rem] overflow-hidden border border-slate-100`}>
         <img src={image} className="h-full w-full object-cover" alt="" />
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <button onClick={onUpload} className="bg-white text-black text-[10px] font-black uppercase tracking-widest px-6 py-2 rounded-full">
+          <button onClick={onUpload} className="bg-white cursor-pointer text-black text-[10px] font-black uppercase tracking-widest px-6 py-2 rounded-full">
             Replace Media
           </button>
         </div>
@@ -447,7 +447,7 @@ const ImageUpload = ({ image, onUpload, small }) => (
     ) : (
       <button 
         onClick={onUpload}
-        className={`${small ? 'h-32' : 'h-64'} w-full bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center text-slate-400 hover:bg-slate-100 transition-all`}
+        className={`${small ? 'h-32' : 'h-64'} w-full cursor-pointer bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center text-slate-400 hover:bg-slate-100 transition-all`}
       >
         <PhotoIcon className={`${small ? 'h-6' : 'h-10'} opacity-30 mb-2`} />
         <span className="text-[10px] font-black uppercase tracking-widest">Add Media</span>

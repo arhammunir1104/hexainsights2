@@ -45,7 +45,7 @@ const TechnologyWorkWith = ({page}) => {
 
   return (
     /* Reduced vertical padding from py-20 to py-12/16 */
-    <section className="py-12 md:py-16 bg-white overflow-hidden font-[Quicksand]">
+    <section className="py-8 bg-white overflow-hidden ">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section - Tightened margin */}

@@ -93,7 +93,7 @@ const CaseStudy = ({ page, header }) => {
   const renderTitle = (fullTitle) => {
     const words = (fullTitle || "Insights & Case Studies").split(" ");
     return (
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-center relative font-[Quicksand]">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-center relative ">
         <span className="text-[#002b80]">{words[0]}</span>{" "}
         <span className="text-[#3b82f6] font-medium">{words[1]}</span>{" "}
         <span className="text-[#002b80]">{words.slice(2).join(" ")}</span>
@@ -102,7 +102,7 @@ const CaseStudy = ({ page, header }) => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-white font-[Quicksand]">
+    <section className="py-12 md:py-16 bg-white ">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center mb-12">

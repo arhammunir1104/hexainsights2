@@ -51,7 +51,7 @@ const Footer = () => {
     if (!footerData) return null;
 
     return (
-        <footer className="bg-white py-12 border-t border-slate-50 font-[Quicksand]">
+        <footer className="bg-white py-12 border-t border-slate-50">
             <div className="max-w-7xl mx-auto px-6">
                 {/* GRID ADJUSTMENT: 
                    Changed lg:grid-cols-12 to ensure 5 columns fit in 1 row.
@@ -128,8 +128,8 @@ const Footer = () => {
                     </div>
 
                     {/* 5. Industries (Spans 3) */}
-                    <div className="lg:col-span-3">
-                        <h4 className="text-[#002b80] font-bold text-sm mb-5 uppercase tracking-wider">Industries</h4>
+                    <div className="lg:col-span-2 lg:ml-8  ">
+                        <h4 className="text-[#002b80]  font-bold text-sm mb-5 uppercase tracking-wider">Industries</h4>
                         <ul className="space-y-2.5">
                             {industries.map((ind, i) => (
                                 <li key={i}>

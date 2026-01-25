@@ -55,11 +55,17 @@ const ProjectsDelivered = ({ data }) => {
 
   if (loading) return null;
 
-  return (
+  return ( 
     <section className="relative py-16 lg:py-20 bg-white overflow-hidden">
       
       {/* Background Glow - Scaled down blur and size */}
-      <div className="absolute -top-10 -right-10 w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-blue-100/50 rounded-full blur-[80px] pointer-events-none z-0" />
+       {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute top-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">

@@ -11,10 +11,10 @@ const ProjectsDelivered = ({ header, page }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProjects = async () => { 
+    const fetchProjects = async () => {
       try {
         const projectsRef = collection(db, "featuredProjectsDB");
-        const q = query(projectsRef, where("display", "array-contains",page));
+        const q = query(projectsRef, where("display", "array-contains", page));
         const querySnapshot = await getDocs(q);
 
         const fetchedProjects = querySnapshot.docs.map((doc) => ({
@@ -30,21 +30,21 @@ const ProjectsDelivered = ({ header, page }) => {
       }
     };
     fetchProjects();
-  }, []);
+  }, [page]);
 
   const renderTitle = (fullTitle) => {
     const words = (fullTitle || "Projects We Delivered").split(" ");
     return (
       <div className="relative inline-block">
-        {/* 1) ARROW POSITIONED VERY CLOSE TO TITLE */}
-        <div className="absolute -top-8 -left-12 md:-top-12 md:-left-16 w-16 md:w-24 pointer-events-none z-20">
+        {/* Decorative Arrow - Scaled down from w-24 to w-16 */}
+        <div className="absolute -top-6 -left-8 md:-top-10 md:-left-12 w-12 md:w-16 lg:w-20 pointer-events-none z-20">
           <img 
             src={arrowImage} 
             alt="decorative arrow" 
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain opacity-80"
           />
         </div>
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-center z-10 relative">
+        <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tight mb-2 text-center z-10 relative">
           <span className="text-[#002b80]">{words[0]}</span>{" "}
           <span className="text-[#3b82f6] font-medium">{words[1]}</span>{" "}
           <span className="text-[#002b80]">{words.slice(2).join(" ")}</span>
@@ -55,73 +55,77 @@ const ProjectsDelivered = ({ header, page }) => {
 
   if (loading) return null;
 
-  return (
-    <section className="relative py-24 bg-white overflow-hidden">
+  return ( 
+    <section className="relative py-16 lg:py-20 bg-white overflow-hidden">
       
-      {/* 2) BLUE GRADIENT SHADOW IN TOP RIGHT CORNER */}
-      <div className="absolute -top-10 -right-10 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-blue-100/70 rounded-full blur-[100px] pointer-events-none z-0" />
+      {/* Background Glow - Scaled down blur and size */}
+       {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute top-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           {renderTitle(header?.title)}
-          <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto mt-3 leading-relaxed">
             {header?.description || "Providing cutting-edge digital solutions tailored to your business needs."}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Grid - Adjusted gap for a tighter look */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {projects.map((project, index) => (
-           <NavLink to={`/project/${project.uid}`}>
+           <NavLink to={`/project/${project.uid}`} key={project.id || index}>
             <div 
-              key={project.id || index}
-              className="group relative flex flex-col bg-white rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer border border-transparent hover:shadow-2xl"
+              className="group relative flex flex-col bg-white rounded-xl overflow-hidden transition-all duration-500 cursor-pointer border border-slate-50 hover:shadow-xl"
             >
-              {/* TOP IMAGE AREA */}
+              {/* TOP IMAGE AREA - Aspect square remains but card rounded-xl is cleaner */}
               <div className="relative aspect-square overflow-hidden">
                 <img 
                   src={project.image?.url} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute top-3 left-3 flex gap-1.5">
+                <div className="absolute top-2 left-2 flex gap-1">
                    {project.keywords?.slice(0, 3).map((word, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-white/80 backdrop-blur-md text-[9px] font-bold text-slate-600 rounded uppercase">
+                    <span key={i} className="px-1.5 py-0.5 bg-white/90 backdrop-blur-md text-[8px] font-bold text-slate-700 rounded-sm uppercase tracking-wider">
                       {word}
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* LOWER DESCRIPTION AREA */}
-              {/* 3) HOVER COLOR CHANGE TO GRAY (#1c1c1c) */}
-              <div className="relative p-6 flex flex-col flex-grow transition-all duration-500 bg-white group-hover:bg-[#1c1c1c]">
+              {/* LOWER DESCRIPTION AREA - Reduced padding */}
+              <div className="relative p-4 flex flex-col flex-grow transition-all duration-500 bg-white group-hover:bg-[#1c1c1c]">
                 
-                {/* 3) STATIC IMAGE: GRAY (Normal) -> NORMAL COLOR (Hover) */}
                 <div 
-                  className="absolute inset-0 opacity-[0.15] grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 bg-cover bg-center pointer-events-none"
+                  className="absolute inset-0 opacity-[0.1] grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 bg-cover bg-center pointer-events-none"
                   style={{ backgroundImage: `url(${projectCard})` }}
                 />
 
                 <div className="relative z-10 flex flex-col h-full">
-                  <h4 className="text-sm font-bold text-slate-700 group-hover:text-white mb-6 leading-snug transition-colors duration-300">
+                  {/* Title - reduced from text-sm to text-[13px] and reduced mb */}
+                  <h4 className="text-[13px] font-bold text-slate-700 group-hover:text-white mb-4 leading-tight transition-colors duration-300">
                     {project.shortDescription || project.title}
                   </h4>
 
                   <div className="mt-auto">
-                    <button 
-                      onClick={() => navigate(`/projects/${project.id}`)}
-                      className="w-10 h-10 rounded-full flex items-center justify-center bg-[#333] text-white group-hover:bg-blue-600 transition-all duration-300 shadow-lg"
+                    {/* Circle Button - Scaled down from w-10 to w-8 */}
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center bg-[#333] text-white group-hover:bg-blue-600 transition-all duration-300 shadow-md"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom blue bar reveals only on hover */}
-              <div className="h-1.5 w-full bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="h-1 w-full bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </div>
             </NavLink>
           ))}

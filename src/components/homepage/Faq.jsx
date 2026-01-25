@@ -62,13 +62,13 @@ const Faq = () => {
             <div className="text-blue-500 flex-shrink-0">
               {expanded === item.id ? <RemoveIcon sx={{ fontSize: 18 }} /> : <AddIcon sx={{ fontSize: 18 }} />}
             </div>
-            <Typography className="text-[14px] md:text-[15px] font-bold text-slate-700 font-[Quicksand]">
+            <Typography className="text-[14px] md:text-[15px] font-bold text-slate-700 ">
               {item.question}
             </Typography>
           </div>
         </AccordionSummary>
         <AccordionDetails sx={{ px: { xs: 2.5, md: 6 }, pb: 2.5 }}>
-          <Typography className="text-[13px] md:text-[14px] text-slate-500 leading-relaxed font-[Quicksand]">
+          <Typography className="text-[13px] md:text-[14px] text-slate-500 leading-relaxed ">
             {item.answer}
           </Typography>
         </AccordionDetails>
@@ -80,11 +80,16 @@ const Faq = () => {
     <section className="relative py-16 bg-white overflow-hidden">
       
       {/* DECORATION - Scaled down */}
-      <div className="absolute top-1/2 -right-24 w-60 h-60 bg-blue-50/50 rounded-full blur-[80px] pointer-events-none" />
-
+       {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute bottom-0 right-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 80% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
       <div className="max-w-6xl mx-auto px-6 relative z-10"> {/* Reduced max-w from 7xl for a tighter look */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight font-[Quicksand]">
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight ">
             <span className="text-[#002b80]">Frequently</span>{" "}
             <span className="text-[#3b82f6]">Asked</span>{" "}
             <span className="text-[#002b80]">Questions</span>

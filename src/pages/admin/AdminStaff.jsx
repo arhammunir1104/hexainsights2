@@ -133,7 +133,7 @@ export default function AdminStaff() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-slate-400 gap-4">
       <CircularProgress size={30} sx={{ color: BRAND_COLOR }} />
-      <p className="font-medium animate-pulse tracking-widest text-xs uppercase">Loading Staff Database...</p>
+      <p className="font-medium animate-pulse tracking-widest text-xs uppercase">Loading Staff Page...</p>
     </div>
   );
 
@@ -154,7 +154,7 @@ export default function AdminStaff() {
           <div className="flex gap-3">
             <button
                 onClick={() => openEditor()}
-                className="flex items-center justify-center gap-2 bg-white text-[#070778] border-2 border-slate-100 px-6 py-3.5 rounded-2xl font-bold hover:bg-slate-50 transition-all active:scale-95"
+                className="flex cursor-pointer items-center justify-center gap-2 bg-white text-[#070778] border-2 border-slate-100 px-6 py-3.5 rounded-2xl font-bold hover:bg-slate-50 transition-all active:scale-95"
             >
                 <PlusIcon className="h-5 w-5 stroke-[3px]" />
                 Add Staff
@@ -162,7 +162,7 @@ export default function AdminStaff() {
             <button
                 onClick={handleSaveAll}
                 disabled={saving}
-                className="flex items-center justify-center gap-2 bg-[#070778] text-white px-8 py-3.5 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] transition-all disabled:opacity-50"
+                className="flex  cursor-pointer items-center justify-center gap-2 bg-[#070778] text-white px-8 py-3.5 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] transition-all disabled:opacity-50"
             >
                 {saving ? <CircularProgress size={20} color="inherit" /> : <CheckCircleIcon className="h-5 w-5 stroke-[3px]" />}
                 Deploy Changes
@@ -193,7 +193,7 @@ export default function AdminStaff() {
                     <img src={member.image.url} className="w-24 h-24 rounded-[2rem] object-cover ring-4 ring-slate-50 shadow-md group-hover:scale-105 transition-transform" alt={member.title} />
                     <button 
                         onClick={() => removeStaffMember(idx)}
-                        className="absolute -top-2 -right-2 p-1.5 bg-red-500 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute -top-2 -right-2 p-1.5  cursor-pointer bg-red-500 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
                     >
                         <TrashIcon className="h-4 w-4" />
                     </button>
@@ -210,7 +210,7 @@ export default function AdminStaff() {
 
                 <button 
                   onClick={() => openEditor(member, idx)}
-                  className="mt-auto w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 font-bold text-[#070778] hover:bg-[#070778] hover:text-white transition-all"
+                  className="mt-auto  cursor-pointer w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 font-bold text-[#070778] hover:bg-[#070778] hover:text-white transition-all"
                 >
                   <PencilSquareIcon className="h-4 w-4" /> Edit
                 </button>
@@ -232,7 +232,7 @@ export default function AdminStaff() {
                     <h2 className="text-xl font-bold">{selectedStaff.title || "New Staff"}</h2>
                 </div>
               </div>
-              <button onClick={() => setSelectedStaff(null)} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <button onClick={() => setSelectedStaff(null)} className="p-2  cursor-pointer hover:bg-white/10 rounded-full transition-colors">
                 <XMarkIcon className="h-7 w-7" />
               </button>
             </div>
@@ -300,9 +300,9 @@ export default function AdminStaff() {
 
                         <button 
                             onClick={commitStaffMember}
-                            className="w-full bg-[#070778] text-white py-5 rounded-2xl font-black uppercase tracking-[0.1em] shadow-xl shadow-indigo-100 hover:scale-[1.02] active:scale-95 transition-all"
+                            className="w-full  cursor-pointer bg-[#070778] text-white py-5 rounded-2xl font-black uppercase tracking-[0.1em] shadow-xl shadow-indigo-100 hover:scale-[1.02] active:scale-95 transition-all"
                         >
-                            Update List Entry
+                            Update List 
                         </button>
                     </div>
                 </div>
@@ -333,13 +333,13 @@ export default function AdminStaff() {
               </label>
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setImageModal(false)} className="flex-1 py-4 font-black text-slate-400 uppercase text-xs">Cancel</button>
+            <button onClick={() => setImageModal(false)} className="flex-1  cursor-pointer py-4 font-black text-slate-400 uppercase text-xs">Cancel</button>
             <button 
                 onClick={uploadToCloudinary} 
                 disabled={uploading || !selectedFile}
-                className="flex-1 bg-[#070778] text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-indigo-100 disabled:opacity-30"
+                className="flex-1 bg-[#070778] text-white py-4  cursor-pointer rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-indigo-100 disabled:opacity-30"
             >
-              {uploading ? <CircularProgress size={18} color="inherit" /> : "Verify Upload"}
+              {uploading ? <CircularProgress size={18} color="inherit" /> : "Upload"}
             </button>
           </div>
         </DialogContent>

@@ -103,7 +103,7 @@ export default function FAQsCMS() {
         </div>
         <button 
           onClick={() => setNewFaqModal(true)}
-          className="bg-[#070778] hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
+          className="bg-[#070778] cursor-pointer hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
         >
           <PlusIcon className="h-5 w-5 stroke-[3px]" />
           New Question
@@ -219,12 +219,13 @@ function FAQModal({ open, onClose, title, data, setData, onSave, saving }) {
       </DialogContent>
 
       <DialogActions className="p-8 pt-2">
-        <Button onClick={onClose} sx={{ fontWeight: 700, textTransform: 'none', color: 'slate.500' }}>Discard</Button>
+        <Button onClick={onClose} sx={{ cursor: "pointer", fontWeight: 700, textTransform: 'none', color: 'slate.500' }}>Cancel</Button>
         <Button
           variant="contained"
           onClick={onSave}
           disabled={saving}
           sx={{
+             cursor: "pointer",
             backgroundColor: BRAND,
             borderRadius: '1.25rem',
             px: 6,
@@ -235,7 +236,7 @@ function FAQModal({ open, onClose, title, data, setData, onSave, saving }) {
             "&:hover": { backgroundColor: "#05055c" },
           }}
         >
-          {saving ? <CircularProgress size={24} color="inherit" /> : "Save FAQ Entry"}
+          {saving ? <CircularProgress size={24} color="inherit" /> : "Save FAQ"}
         </Button>
       </DialogActions>
     </Dialog>

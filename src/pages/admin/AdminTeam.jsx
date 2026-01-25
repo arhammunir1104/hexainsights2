@@ -130,7 +130,7 @@ export default function AdminTeam() {
         </div>
         <button 
           onClick={() => { setSelected(defaultMember); setModalOpen(true); }}
-          className="bg-[#070778] hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
+          className="bg-[#070778] cursor-pointer hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
         >
           <UserPlusIcon className="h-5 w-5" />
           Add Member
@@ -167,13 +167,13 @@ export default function AdminTeam() {
               <div className="flex gap-2 pt-4 border-t border-slate-50">
                 <button 
                   onClick={() => { setSelected(m); setModalOpen(true); }}
-                  className="flex-1 bg-slate-50 hover:bg-blue-50 text-blue-600 py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-colors"
+                  className="flex-1 bg-slate-50 cursor-pointer hover:bg-blue-50 text-blue-600 py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-colors"
                 >
                   <PencilSquareIcon className="h-4 w-4" /> Edit
                 </button>
                 <button 
                   onClick={() => deleteMember(m.id)}
-                  className="flex-1 bg-slate-50 hover:bg-red-50 text-red-500 py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-colors"
+                  className="flex-1 bg-slate-50 cursor-pointer hover:bg-red-50 text-red-500 py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-colors"
                 >
                   <TrashIcon className="h-4 w-4" /> Delete
                 </button>
@@ -208,7 +208,7 @@ export default function AdminTeam() {
               </div>
             )}
             <label className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-white font-black text-xs uppercase tracking-[0.2em]">
-              Upload New
+              Upload Image
               <input type="file" className="hidden" accept="image/*" onChange={(e) => setFile(e.target.files[0])} />
             </label>
           </div>
@@ -246,12 +246,12 @@ export default function AdminTeam() {
         </DialogContent>
 
         <DialogActions className="p-8 pt-2">
-          <Button onClick={() => setModalOpen(false)} sx={{ fontWeight: 700, textTransform: 'none', color: 'slate.500' }}>Cancel</Button>
+          <Button onClick={() => setModalOpen(false)} sx={{ fontWeight: 700, textTransform: 'none', color: 'slate.500', cursor: "pointer"  }}>Cancel</Button>
           <Button 
             variant="contained" 
             onClick={saveMember} 
             disabled={loading || uploading}
-            sx={{ bgcolor: BRAND, borderRadius: '1.25rem', px: 6, py: 1.5, fontWeight: 800, textTransform: 'none', fontSize: '1rem', '&:hover': { bgcolor: '#05055a' } }}
+            sx={{ bgcolor: BRAND, borderRadius: '1.25rem', px: 6, py: 1.5, fontWeight: 800, textTransform: 'none', cursor: "pointer" ,fontSize: '1rem', '&:hover': { bgcolor: '#05055a' } }}
           >
             {loading ? <CircularProgress size={24} color="inherit" /> : "Save Profile"}
           </Button>

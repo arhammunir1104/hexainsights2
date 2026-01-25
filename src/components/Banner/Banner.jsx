@@ -10,7 +10,10 @@ const HomepageHero = ({ data }) => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-white">
-      {/* 1. Background Layer System */}
+      
+     
+
+{/* 1. Background Layer System */}
       <div className="absolute inset-0 z-0">
         {/* Base Image - Increased opacity for maximum clarity */}
         <img
@@ -35,11 +38,14 @@ const HomepageHero = ({ data }) => {
 
       {/* 2. Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
+        
+      
         <div className="max-w-2xl">
           {/* Hero Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#002b80] leading-[1.05] mb-6 tracking-tight whitespace-pre-line">
+          <h1 className="text-md font-[Raleway] md:text-xl lg:text-xl  text-[#002b80] leading-[1.05] mb-6 tracking-tight whitespace-pre-line">
             {title || "Your Project, \nDelivered Smarter"}
           </h1>
+          
 
           {/* Hero Description */}
           <p className="text-lg md:text-xl text-slate-700 mb-10 leading-relaxed max-w-lg font-medium">

@@ -131,17 +131,17 @@ export default function AdminIndustryPage() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[50vh]">
       <CircularProgress sx={{ color: BRAND_COLOR }} />
-      <p className="mt-4 text-slate-500 font-medium">Loading Industry Portfolio...</p>
+      <p className="mt-4 text-slate-500 font-medium">Loading Industry Page...</p>
     </div>
   );
 
   return (
-    <div className="max-w-7xl mx-auto space-y-10 pb-20 font-[Quicksand]">
+    <div className="max-w-7xl mx-auto space-y-10 pb-20 ">
       <ToastContainer position="top-right" autoClose={3000} />
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#002b80] tracking-tight">Industry CMS</h1>
+          <h1 className="text-3xl font-extrabold text-[#002b80] tracking-tight">Industry Page</h1>
           <p className="text-slate-500 mt-1">Design specialized hubs for your target markets.</p>
         </div>
         <NewIndustryModal onCreate={createIndustry} />
@@ -158,12 +158,12 @@ export default function AdminIndustryPage() {
               <h3 className="font-extrabold text-[#002b80] mb-4 text-lg">{ind.title}</h3>
               <div className="flex gap-2 w-full">
                 <button 
-                  className="flex-1 py-2 rounded-xl bg-blue-50 text-[#002b80] text-xs font-bold hover:bg-[#002b80] hover:text-white transition-colors"
+                  className="flex-1 cursor-pointer py-2 rounded-xl bg-blue-50 text-[#002b80] text-xs font-bold hover:bg-[#002b80] hover:text-white transition-colors"
                   onClick={() => { setSelectedIndustry(ind.id); setIndustryData(ind); }}
                 >
                   Configure
                 </button>
-                <button className="p-2 rounded-xl text-slate-300 hover:text-red-500 transition-colors" onClick={() => deleteIndustry(ind.id)}>
+                <button className="p-2 cursor-pointer rounded-xl text-slate-300 hover:text-red-500 transition-colors" onClick={() => deleteIndustry(ind.id)}>
                   <TrashIcon className="h-5 w-5" />
                 </button>
               </div>
@@ -180,7 +180,7 @@ export default function AdminIndustryPage() {
               <PencilSquareIcon className="h-6 w-6 opacity-60" />
               <h2 className="text-xl font-bold">Industrial Design: {industryData.title}</h2>
             </div>
-            <button onClick={() => setSelectedIndustry(null)} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+            <button onClick={() => setSelectedIndustry(null)} className="p-2 cursor-pointer hover:bg-white/10 rounded-full transition-colors">
               <XMarkIcon className="h-6 w-6" />
             </button>
           </div>
@@ -239,7 +239,7 @@ export default function AdminIndustryPage() {
                     <button onClick={() => {
                       const cards = industryData.subSection.cards.filter((_, idx) => idx !== i);
                       setIndustryData(prev => ({ ...prev, subSection: { ...prev.subSection, cards } }));
-                    }} className="absolute top-4 right-4 text-red-400 opacity-0 group-hover/card:opacity-100 transition-opacity">
+                    }} className="absolute cursor-pointer top-4 right-4 text-red-400 opacity-0 group-hover/card:opacity-100 transition-opacity">
                       <TrashIcon className="h-5 w-5" />
                     </button>
                     
@@ -248,7 +248,7 @@ export default function AdminIndustryPage() {
                       <button onClick={() => openImageModal(img => {
                           const cards = [...industryData.subSection.cards]; cards[i] = { ...cards[i], image: img };
                           setIndustryData(prev => ({ ...prev, subSection: { ...prev.subSection, cards } }));
-                        })} className="absolute inset-0 bg-black/40 text-white text-[10px] font-bold opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                        })} className="absolute cursor-pointer inset-0 bg-black/40 text-white text-[10px] font-bold opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
                         UPDATE PHOTO
                       </button>
                     </div>
@@ -262,10 +262,10 @@ export default function AdminIndustryPage() {
                 ))}
                 <button 
                   onClick={() => setIndustryData(prev => ({ ...prev, subSection: { ...prev.subSection, cards: [...prev.subSection.cards, { heading: "", text: "", description: "", image: {} }] } }))}
-                  className="border-2 border-dashed border-slate-200 rounded-[2rem] p-10 flex flex-col items-center justify-center text-slate-400 hover:border-[#002b80] hover:text-[#002b80] hover:bg-blue-50/50 transition-all"
+                  className="border-2 cursor-pointer border-dashed border-slate-200 rounded-[2rem] p-10 flex flex-col items-center justify-center text-slate-400 hover:border-[#002b80] hover:text-[#002b80] hover:bg-blue-50/50 transition-all"
                 >
                   <PlusIcon className="h-10 w-10 mb-2" />
-                  <span className="font-bold uppercase text-[10px]">Add Feature Card</span>
+                  <span className="font-bold uppercase cursor-pointer text-[10px]">Add Feature Card</span>
                 </button>
               </div>
             </AdminSection>
@@ -281,9 +281,9 @@ export default function AdminIndustryPage() {
             <button 
               onClick={saveIndustry} 
               disabled={saving}
-              className="w-full bg-[#002b80] hover:bg-black text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full cursor-pointer bg-[#002b80] hover:bg-black text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
-              {saving ? <CircularProgress size={24} color="inherit" /> : <><CheckCircleIcon className="h-6 w-6" /> Save & Deploy Industry Page</>}
+              {saving ? <CircularProgress size={24} color="inherit" /> : <><CheckCircleIcon className="h-6 w-6" /> Deploy Changes</>}
             </button>
           </div>
         </div>
@@ -306,9 +306,9 @@ export default function AdminIndustryPage() {
           </div>
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <button className="px-6 py-2 text-slate-400 font-bold text-sm" onClick={() => setModalOpen(false)}>Cancel</button>
-          <button onClick={uploadImage} disabled={uploading || !selectedFile} className="bg-[#002b80] text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-100 disabled:opacity-50">
-            {uploading ? <CircularProgress size={16} color="inherit" /> : "Confirm Selection"}
+          <button className="px-6 py-2 cursor-pointer text-slate-400 font-bold text-sm" onClick={() => setModalOpen(false)}>Cancel</button>
+          <button onClick={uploadImage} disabled={uploading || !selectedFile} className="bg-[#002b80] cursor-pointer text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-100 disabled:opacity-50">
+            {uploading ? <CircularProgress size={16} color="inherit" /> : "Upload"}
           </button>
         </DialogActions>
       </Dialog>
@@ -341,7 +341,7 @@ const NewIndustryModal = ({ onCreate }) => {
 
   return (
     <>
-      <button onClick={() => setOpen(true)} className="flex items-center justify-center gap-2 bg-[#002b80] hover:bg-black text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-blue-100">
+      <button onClick={() => setOpen(true)} className="flex  cursor-pointer items-center justify-center gap-2 bg-[#002b80] hover:bg-black text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-blue-100">
         <PlusIcon className="h-5 w-5" /> New Industry
       </button>
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="xs" PaperProps={{ sx: { borderRadius: '2rem' } }}>
@@ -358,8 +358,8 @@ const NewIndustryModal = ({ onCreate }) => {
           </div>
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <button className="px-6 py-2 text-slate-400 font-bold text-sm" onClick={() => setOpen(false)}>Discard</button>
-          <button onClick={handleUploadAndCreate} disabled={uploading} className="bg-[#002b80] text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg disabled:opacity-50">
+          <button className="px-6 py-2 cursor-pointer text-slate-400 font-bold text-sm" onClick={() => setOpen(false)}>Discard</button>
+          <button onClick={handleUploadAndCreate} disabled={uploading} className="bg-[#002b80] cursor-pointer text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg disabled:opacity-50">
             {uploading ? <CircularProgress size={16} color="inherit" /> : "Build Page"}
           </button>
         </DialogActions>
@@ -408,7 +408,7 @@ const ImageUpload = ({ label, image, onUpload }) => (
     <div className="relative group rounded-2xl overflow-hidden border border-slate-200 aspect-video bg-slate-100 shadow-inner">
       {image ? <img src={image} className="h-full w-full object-cover" /> : <div className="h-full flex items-center justify-center text-slate-300">No Image</div>}
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-        <button onClick={onUpload} className="bg-white text-blue-700 px-5 py-2 rounded-xl text-xs font-bold shadow-xl">Replace Asset</button>
+        <button onClick={onUpload} className="bg-white cursor-pointer text-blue-700 px-5 py-2 rounded-xl text-xs font-bold shadow-xl">Change Image</button>
       </div>
     </div>
   </div>

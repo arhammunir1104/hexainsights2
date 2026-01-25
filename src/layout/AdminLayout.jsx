@@ -24,10 +24,10 @@ export default function AdminLayout({ children }) {
   // Organized by Operational Priority
   const menuGroups = [
     {
-      group: "Core",
+      group: "Leads",
       items: [
         // { name: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/admin/dashboard" },
-        { name: "Feedback", icon: <Inbox size={20} />, path: "/admin/feedback-page" },
+        { name: "Inquiries", icon: <Inbox size={20} />, path: "/admin/feedback-page" },
       ]
     },
     {

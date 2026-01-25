@@ -48,7 +48,7 @@ const ServiceStaffComponent = ({ pageUid = "home", show = true }) => {
   if (loading || data.staff.length === 0) return null;
 
   return (
-    <div className="py-12 md:py-16 px-6 md:px-12 lg:px-24 font-[Quicksand] relative overflow-hidden bg-white">
+    <div className="py-8 px-6 md:px-12 lg:px-24  relative overflow-hidden bg-white">
       
       {/* Subtle Background Scribble - Scaled down */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
@@ -81,7 +81,7 @@ const ServiceStaffComponent = ({ pageUid = "home", show = true }) => {
                 <img 
                   src={member.image?.url} 
                   alt={member.title} 
-                  className="w-6 h-6 object-contain grayscale group-hover:grayscale-0 transition-all" 
+                  className="w-6 h-6 object-contain  transition-all" 
                 />
               </div>
               <h3 className="text-slate-700 font-bold text-sm md:text-base leading-tight group-hover:text-[#001D84] transition-colors">

@@ -5,7 +5,7 @@ const ProjectComponent = ({ data }) => {
 
   return (
     /* Scaled down top margin from 10% to 48px and bottom from 5% to 32px */
-    <div className="w-full mt-12 mb-8 bg-white font-[Quicksand]">
+    <div className="w-full mt-12 mb-8 bg-white ">
       {/* ================= SECTION 1: BANNER ================= */}
       {/* Scaled down py-16 to py-10 */}
       <section className="py-10 px-6 md:px-12 lg:px-24 text-center border-b border-gray-100">

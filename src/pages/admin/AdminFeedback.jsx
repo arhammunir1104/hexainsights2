@@ -42,7 +42,7 @@ const AdminFeedbackPage = () => {
   );
 
   return (
-    <div className="p-4 md:p-8 bg-slate-50 min-h-screen font-[Quicksand]">
+    <div className="p-4 md:p-8 bg-slate-50 min-h-screen ">
       <div className="max-w-7xl mx-auto">
         <header className="mb-10">
           <h1 className="text-3xl font-bold text-[#002b80] tracking-tight">Client Inquiries</h1>

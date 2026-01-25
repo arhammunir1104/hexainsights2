@@ -101,12 +101,12 @@ export default function HomePageCMS() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh]">
       <CircularProgress size={40} sx={{ color: '#003eb3' }} />
-      <p className="mt-4 text-slate-500 font-medium">Syncing Home Page Data...</p>
+      <p className="mt-4 text-slate-500 font-medium">Loading Home Page ...</p>
     </div>
   );
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8 pb-20 font-[Quicksand]">
+    <div className="max-w-6xl mx-auto space-y-8 pb-20">
       <ToastContainer position="top-right" autoClose={3000} />
       
       <div className="flex items-center justify-between">
@@ -154,7 +154,7 @@ export default function HomePageCMS() {
                     setDraftHome(prev => ({ ...prev, locationsSection: { ...prev.locationsSection, images } }));
                   }} />
                   <button 
-                    className="absolute top-2 right-2 p-1.5 bg-white/90 backdrop-blur shadow-sm rounded-full text-red-500 hover:bg-red-500 hover:text-white transition-all" 
+                    className="absolute cursor-pointer top-2 right-2 p-1.5 bg-white/90 backdrop-blur shadow-sm rounded-full text-red-500 hover:bg-red-500 hover:text-white transition-all" 
                     onClick={() => setDraftHome(prev => ({ ...prev, locationsSection: { ...prev.locationsSection, images: prev.locationsSection.images.filter((_, idx) => idx !== i) } }))}
                   >
                     <TrashIcon className="h-4 w-4" />
@@ -162,7 +162,7 @@ export default function HomePageCMS() {
                 </div>
               ))}
               <button 
-                className="h-full min-h-[160px] border-2 border-dashed border-slate-300 rounded-2xl flex flex-col items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-400 hover:bg-blue-50/50 transition-all"
+                className="h-full cursor-pointer min-h-[160px] border-2 border-dashed border-slate-300 rounded-2xl flex flex-col items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-400 hover:bg-blue-50/50 transition-all"
                 onClick={() => openImageModal(img => setDraftHome(prev => ({ ...prev, locationsSection: { ...prev.locationsSection, images: [...prev.locationsSection.images, { ...img, text: "" }] } })))}
               >
                 <PlusIcon className="h-8 w-8 mb-2" />
@@ -224,13 +224,13 @@ export default function HomePageCMS() {
           </div>
         </DialogContent>
         <DialogActions sx={{ padding: '16px' }}>
-          <button className="px-4 py-2 text-slate-500 font-bold text-sm" onClick={() => setModalOpen(false)}>Cancel</button>
+          <button className="px-4 py-2 cursor-pointer text-slate-500 font-bold text-sm" onClick={() => setModalOpen(false)}>Cancel</button>
           <button 
             disabled={uploading || !selectedFile} 
             onClick={uploadImage}
-            className="flex items-center gap-2 bg-[#003eb3] text-white px-6 py-2 rounded-xl text-sm font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 disabled:opacity-50 transition-all"
+            className="flex cursor-pointer items-center gap-2 bg-[#003eb3] text-white px-6 py-2 rounded-xl text-sm font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 disabled:opacity-50 transition-all"
           >
-            {uploading ? <CircularProgress size={16} color="inherit" /> : <><CheckIcon className="h-4 w-4" /> Finalize Upload</>}
+            {uploading ? <CircularProgress size={16} color="inherit" /> : <><CheckIcon className="h-4 w-4" /> Upload</>}
           </button>
         </DialogActions>
       </Dialog>
@@ -285,8 +285,8 @@ const ImageUpload = ({ label, image, onUpload }) => (
         </div>
       )}
       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-        <button onClick={onUpload} className="bg-white text-blue-700 px-5 py-2 rounded-xl text-xs font-extrabold shadow-xl active:scale-95 transition-all">
-          Change Media
+        <button onClick={onUpload} className="bg-white cursor-pointer text-blue-700 px-5 py-2 rounded-xl text-xs font-extrabold shadow-xl active:scale-95 transition-all">
+          Change Image
         </button>
       </div>
     </div>
@@ -297,7 +297,7 @@ const SaveButton = ({ onClick, loading }) => (
   <button 
     onClick={onClick} 
     disabled={loading}
-    className="w-full py-3 bg-[#002b80] hover:bg-black text-white rounded-xl font-bold text-sm shadow-lg shadow-blue-100 transition-all active:scale-[0.98] disabled:opacity-70 mt-2 flex items-center justify-center gap-2"
+    className="w-full py-3 cursor-pointer bg-[#002b80] hover:bg-black text-white rounded-xl font-bold text-sm shadow-lg shadow-blue-100 transition-all active:scale-[0.98] disabled:opacity-70 mt-2 flex items-center justify-center gap-2"
   >
     {loading ? <CircularProgress size={16} color="inherit" /> : <><CheckIcon className="h-4 w-4" /> Deploy Changes</>}
   </button>

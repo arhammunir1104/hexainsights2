@@ -144,10 +144,10 @@ export default function AdminTechnology() {
         </div>
         <button 
           onClick={() => setNewTechModal(true)}
-          className="bg-[#070778] hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
+          className="bg-[#070778] cursor-pointer hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
         >
           <PlusIcon className="h-5 w-5" />
-          Add Technology
+          Add New Technology
         </button>
       </div>
 
@@ -206,9 +206,9 @@ export default function AdminTechnology() {
                     </div>
                     <button 
                         onClick={() => openImageModal((img) => setSelectedTech((p) => ({ ...p, image: img })))}
-                        className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem] flex items-center justify-center text-white text-[10px] font-black uppercase tracking-widest"
+                        className="absolute  cursor-pointer inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem] flex items-center justify-center text-white text-[10px] font-black uppercase tracking-widest"
                     >
-                        Update Icon
+                        Change Image
                     </button>
                  </div>
               </div>
@@ -249,9 +249,9 @@ export default function AdminTechnology() {
                     fullWidth
                     onClick={saveTech} 
                     disabled={saving}
-                    sx={{ backgroundColor: "#070778", py: 2, borderRadius: '1.25rem', fontWeight: 800, textTransform: 'none', fontSize: '1rem', '&:hover': { backgroundColor: '#05055a' } }}
+                    sx={{ cursor: "pointer" ,backgroundColor: "#070778", py: 2, borderRadius: '1.25rem', fontWeight: 800, textTransform: 'none', fontSize: '1rem', '&:hover': { backgroundColor: '#05055a' } }}
                 >
-                    {saving ? <CircularProgress size={24} color="inherit" /> : "Save Changes"}
+                    {saving ? <CircularProgress size={24} color="inherit" /> : "Deploy Changes"}
                 </Button>
               </div>
             </div>
@@ -278,8 +278,8 @@ export default function AdminTechnology() {
             </label>
           )}
           <div className="flex gap-3">
-             <Button fullWidth onClick={() => setImageModalOpen(false)} sx={{ fontWeight: 700 }}>Cancel</Button>
-             <Button fullWidth variant="contained" onClick={uploadImage} disabled={uploading || !selectedFile} sx={{ bgcolor: '#070778', borderRadius: '1rem', fontWeight: 800 }}>
+             <Button fullWidth onClick={() => setImageModalOpen(false)} sx={{ fontWeight: 700, cursor: "pointer" }}>Cancel</Button>
+             <Button fullWidth variant="contained" onClick={uploadImage} disabled={uploading || !selectedFile} sx={{ bgcolor: '#070778',  cursor: "pointer" ,borderRadius: '1rem', fontWeight: 800 }}>
                 {uploading ? <CircularProgress size={20} /> : "Upload"}
              </Button>
           </div>
@@ -306,12 +306,12 @@ export default function AdminTechnology() {
           </div>
         </DialogContent>
         <DialogActions className="p-6 pt-0">
-          <Button onClick={() => setNewTechModal(false)} sx={{ fontWeight: 700 }}>Discard</Button>
-          <Button variant="contained" onClick={createTech} sx={{ bgcolor: '#070778', borderRadius: '1rem', px: 4, fontWeight: 800 }}>Confirm Stack Addition</Button>
+          <Button onClick={() => setNewTechModal(false)} sx={{ fontWeight: 700, cursor: "pointer"  }}>Cancel</Button>
+          <Button variant="contained" onClick={createTech} sx={{ bgcolor: '#070778', borderRadius: '1rem', px: 4, fontWeight: 800, cursor: "pointer"  }}>Add Stack</Button>
         </DialogActions>
       </Dialog>
 
-      <Snackbar open={notification.open} autoHideDuration={3000} onClose={() => setNotification((p) => ({ ...p, open: false }))} anchorOrigin={{ vertical: "bottom", horizontal: "right" }}>
+      <Snackbar open={notification.open} autoHideDuration={3000} onClose={() => setNotification((p) => ({ ...p, open: false }))} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
         <Alert severity={notification.severity} variant="filled" sx={{ borderRadius: '1rem', fontWeight: 600 }}>{notification.message}</Alert>
       </Snackbar>
     </div>

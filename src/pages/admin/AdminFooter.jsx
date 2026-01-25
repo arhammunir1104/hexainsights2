@@ -107,9 +107,9 @@ export default function AdminFooter() {
         <button 
           onClick={saveFooter}
           disabled={saving}
-          className="bg-[#070778] hover:bg-[#05055a] text-white px-10 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/20 transition-all active:scale-95 disabled:opacity-70"
+          className="bg-[#070778] hover:bg-[#05055a] cursor-pointer text-white px-10 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/20 transition-all active:scale-95 disabled:opacity-70"
         >
-          {saving ? <CircularProgress size={20} color="inherit" /> : "Publish Changes"}
+          {saving ? <CircularProgress size={20} color="inherit" /> : "Deploy Changes"}
         </button>
       </div>
 

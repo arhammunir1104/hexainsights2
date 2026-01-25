@@ -139,7 +139,7 @@ export default function AdminTestimonial() {
         </div>
         <button 
           onClick={openNewModal}
-          className="bg-[#070778] hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
+          className="bg-[#070778] cursor-pointer hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
         >
           <PlusIcon className="h-5 w-5 stroke-[3px]" />
           Add Testimonial
@@ -272,9 +272,9 @@ export default function AdminTestimonial() {
         <DialogActions className="p-6">
           <Button 
             onClick={() => setModalOpen(false)} 
-            sx={{ fontWeight: 700, textTransform: 'none', color: 'slate.500' }}
+            sx={{ fontWeight: 700, textTransform: 'none', color: 'slate.500', cursor : "pointer" }}
           >
-            Discard
+            Cancel
           </Button>
           <Button
             variant="contained"
@@ -288,10 +288,11 @@ export default function AdminTestimonial() {
               fontWeight: 800,
               textTransform: 'none',
               fontSize: '1rem',
+              cursor : "pointer",
               "&:hover": { backgroundColor: "#05055c" },
             }}
           >
-            {saving ? <CircularProgress size={24} color="inherit" /> : "Publish Feedback"}
+            {saving ? <CircularProgress size={24} color="inherit" /> : "Save Testimonial"}
           </Button>
         </DialogActions>
       </Dialog>

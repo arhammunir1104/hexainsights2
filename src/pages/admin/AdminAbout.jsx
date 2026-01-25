@@ -153,12 +153,12 @@ export default function AdminAboutPage() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh]">
       <CircularProgress size={40} sx={{ color: BRAND_COLOR }} />
-      <p className="mt-4 text-slate-500 font-medium font-[Quicksand]">Syncing About Us content...</p>
+      <p className="mt-4 text-slate-500 font-medium ">Loading About Us Page...</p>
     </div>
   );
 
   return (
-    <div className="max-w-6xl mx-auto space-y-10 pb-20 font-[Quicksand]">
+    <div className="max-w-6xl mx-auto space-y-10 pb-20 ">
       <ToastContainer position="top-right" />
       
       <header className="flex justify-between items-end">
@@ -169,7 +169,7 @@ export default function AdminAboutPage() {
         <button 
             onClick={saveData} 
             disabled={saving}
-            className="hidden md:flex items-center gap-2 bg-[#002b80] hover:bg-black text-white px-8 py-3 rounded-2xl font-bold shadow-lg shadow-blue-100 transition-all active:scale-95 disabled:opacity-70"
+            className="hidden cursor-pointer md:flex items-center gap-2 bg-[#002b80] hover:bg-black text-white px-8 py-3 rounded-2xl font-bold shadow-lg shadow-blue-100 transition-all active:scale-95 disabled:opacity-70"
         >
             {saving ? <CircularProgress size={18} color="inherit" /> : <><CheckCircleIcon className="h-5 w-5" /> Deploy Changes</>}
         </button>
@@ -192,7 +192,7 @@ export default function AdminAboutPage() {
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
                     <button 
                         onClick={() => { setTargetPath(["BannerSection", "image"]); setModalOpen(true); }}
-                        className="bg-white text-blue-700 px-4 py-2 rounded-xl text-xs font-bold shadow-xl"
+                        className="bg-white cursor-pointer text-blue-700 px-4 py-2 rounded-xl text-xs font-bold shadow-xl"
                     >
                         Change Image
                     </button>
@@ -223,7 +223,7 @@ export default function AdminAboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {data.cards.map((c, i) => (
             <div key={i} className="group relative bg-slate-50/50 border border-slate-200 rounded-3xl p-6 transition-all hover:border-blue-300 hover:shadow-sm">
-              <button onClick={() => removeCard("cards", i)} className="absolute top-4 right-4 text-slate-300 hover:text-red-500 transition-colors">
+              <button onClick={() => removeCard("cards", i)} className="absolute cursor-pointer top-4 right-4 text-slate-300 hover:text-red-500 transition-colors">
                 <TrashIcon className="h-5 w-5" />
               </button>
               
@@ -231,7 +231,7 @@ export default function AdminAboutPage() {
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">Card Graphic</label>
                 <div className="h-32 bg-slate-100 rounded-2xl overflow-hidden relative">
                   {c.image ? <img src={c.image} className="w-full h-full object-cover" alt="card" /> : <div className="h-full w-full flex items-center justify-center text-slate-300"><PhotoIcon className="h-8 w-8" /></div>}
-                  <button onClick={() => { setTargetPath(["cards", i, "image"]); setModalOpen(true); }} className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-all flex items-center justify-center text-white text-xs font-bold">Edit Image</button>
+                  <button onClick={() => { setTargetPath(["cards", i, "image"]); setModalOpen(true); }} className="absolute cursor-pointer inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-all flex items-center justify-center text-white text-xs font-bold">Edit Image</button>
                 </div>
               </div>
 
@@ -244,7 +244,7 @@ export default function AdminAboutPage() {
           ))}
           <button 
             onClick={() => addCard("cards", { image: "", heading: "", title: "", description: "" })}
-            className="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 rounded-3xl p-10 text-slate-400 hover:border-blue-400 hover:text-blue-500 hover:bg-blue-50/30 transition-all group"
+            className="flex flex-col cursor-pointer items-center justify-center border-2 border-dashed border-slate-200 rounded-3xl p-10 text-slate-400 hover:border-blue-400 hover:text-blue-500 hover:bg-blue-50/30 transition-all group"
           >
             <PlusIcon className="h-10 w-10 mb-2 group-hover:scale-110 transition-transform" />
             <span className="font-bold text-sm uppercase tracking-wider">Add Pillar Card</span>
@@ -265,14 +265,14 @@ export default function AdminAboutPage() {
                <button onClick={() => {
                    const cards = data.corporateSection.corporateCards.filter((_, idx) => idx !== i);
                    setData({ ...data, corporateSection: { ...data.corporateSection, corporateCards: cards } });
-               }} className="absolute -top-2 -right-2 bg-white border shadow-sm text-red-500 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all">
+               }} className="absolute -top-2 -right-2 cursor-pointer bg-white border shadow-sm text-red-500 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all">
                 <TrashIcon className="h-4 w-4" />
               </button>
 
               <div className="mb-4">
                 <div className="h-20 w-20 bg-blue-50 rounded-2xl mx-auto flex items-center justify-center relative overflow-hidden group/icon">
                   {c.icon ? <img src={c.icon} className="h-full w-full object-contain p-2" alt="icon" /> : <PhotoIcon className="h-8 w-8 text-blue-200" />}
-                  <button onClick={() => { setTargetPath(["corporateSection", "corporateCards", i, "icon"]); setModalOpen(true); }} className="absolute inset-0 bg-[#002b80]/80 text-white opacity-0 group-hover/icon:opacity-100 flex items-center justify-center transition-all">
+                  <button onClick={() => { setTargetPath(["corporateSection", "corporateCards", i, "icon"]); setModalOpen(true); }} className="absolute cursor-pointer inset-0 bg-[#002b80]/80 text-white opacity-0 group-hover/icon:opacity-100 flex items-center justify-center transition-all">
                     <CloudArrowUpIcon className="h-6 w-6" />
                   </button>
                 </div>
@@ -286,7 +286,7 @@ export default function AdminAboutPage() {
           ))}
           <button 
             onClick={() => setData({ ...data, corporateSection: { ...data.corporateSection, corporateCards: [...data.corporateSection.corporateCards, { icon: "", title: "", description: "" }] }})}
-            className="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 rounded-3xl p-6 text-slate-400 hover:text-[#002b80] transition-all"
+            className="flex cursor-pointer flex-col items-center justify-center border-2 border-dashed border-slate-200 rounded-3xl p-6 text-slate-400 hover:text-[#002b80] transition-all"
           >
             <PlusIcon className="h-8 w-8 mb-1" />
             <span className="text-[10px] font-bold uppercase tracking-widest">Add Value</span>
@@ -295,7 +295,7 @@ export default function AdminAboutPage() {
       </AdminSection>
 
       <div className="md:hidden pt-10">
-        <button onClick={saveData} disabled={saving} className="w-full bg-[#002b80] text-white py-4 rounded-2xl font-bold shadow-lg">
+        <button onClick={saveData} disabled={saving} className="w-full cursor-pointer bg-[#002b80] text-white py-4 rounded-2xl font-bold shadow-lg">
             {saving ? "Saving Changes..." : "Publish Page Updates"}
         </button>
       </div>
@@ -304,7 +304,7 @@ export default function AdminAboutPage() {
       {modalOpen && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
           <div className="bg-white rounded-[2rem] p-8 w-full max-w-md shadow-2xl relative animate-in fade-in zoom-in duration-200">
-            <button onClick={closeModal} className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors">
+            <button onClick={closeModal} className="absolute cursor-pointer top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors">
               <XMarkIcon className="h-6 w-6" />
             </button>
             
@@ -333,13 +333,13 @@ export default function AdminAboutPage() {
             </div>
 
             <div className="flex gap-3">
-              <button className="flex-1 py-3 border border-slate-200 rounded-xl text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all" onClick={closeModal}>Cancel</button>
+              <button className="flex-1 cursor-pointer py-3 border border-slate-200 rounded-xl text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all" onClick={closeModal}>Cancel</button>
               <button 
                 onClick={uploadImage} 
                 disabled={uploading || !file} 
-                className="flex-1 py-3 bg-[#002b80] text-white rounded-xl font-bold text-sm shadow-lg shadow-blue-100 disabled:opacity-50 hover:bg-black transition-all"
+                className="flex-1 py-3 cursor-pointer bg-[#002b80] text-white rounded-xl font-bold text-sm shadow-lg shadow-blue-100 disabled:opacity-50 hover:bg-black transition-all"
               >
-                {uploading ? <CircularProgress size={18} color="inherit" /> : "Finalize Upload"}
+                {uploading ? <CircularProgress size={18} color="inherit" /> : "Upload"}
               </button>
             </div>
           </div>

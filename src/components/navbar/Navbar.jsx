@@ -100,7 +100,7 @@ const Navbar = () => {
         {/* Button - Reduced padding and text size */}
         <NavLink to="/pricing" className="ml-2">
           <button className="px-6 py-2.5 bg-gradient-to-r from-[#003eb3] to-[#0072ff] hover:shadow-lg hover:shadow-blue-500/30 text-white text-sm font-bold rounded-lg transition-all duration-300 active:scale-95 cursor-pointer border border-white/10">
-            Get Pricing
+            Get Our Pricing
           </button>
         </NavLink>
       </div>
@@ -151,7 +151,7 @@ const Navbar = () => {
               
               <NavLink to="/pricing" onClick={() => setDrawerOpen(false)} className="mt-6">
                 <button className="w-full py-3.5 bg-[#003eb3] text-white rounded-xl text-sm font-bold">
-                  Get Pricing
+                  Get Our Pricing
                 </button>
               </NavLink>
             </div>

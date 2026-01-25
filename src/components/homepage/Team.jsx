@@ -52,9 +52,15 @@ const Team = () => {
   if (loading) return null;
 
   return (
-    <section className="relative w-full py-16 lg:py-20 bg-white font-[Quicksand] overflow-hidden">
+    <section className="relative w-full py-16 lg:py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+               {/* FIXED GRADIENT: Reduced size and opacity */}
+      <div 
+        className="absolute top-0 left-0 w-[250px] h-[250px] pointer-events-none opacity-30 z-0"
+        style={{
+          background: "radial-gradient(circle at 20% 50%, rgba(2, 113, 255, 0.5) 0%, transparent 60%)"
+        }}
+      />
         {/* Heading Scaled Down */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0037a5]">
