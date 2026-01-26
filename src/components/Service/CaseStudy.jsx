@@ -102,12 +102,12 @@ const CaseStudy = ({ page, header }) => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-white ">
+    <section className="py-8 bg-white ">
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="text-center mb-12">
+        <div className="text-center text-3xl lg:text-5xl  mb-12">
           {renderTitle(header?.heading)}
-          <p className="text-slate-500 text-xs md:text-sm max-w-xl mx-auto mt-4 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-xl mx-auto mt-4 leading-relaxed">
             {header?.description || "In-depth looks at how we solve complex digital challenges."}
           </p>
         </div>

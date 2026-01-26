@@ -49,10 +49,10 @@ const TrustedBy = ({ data }) => {
         {/* Header Section - Reduced mb-20 to mb-12 */}
         <div className="mb-12 relative">
           {/* Heading scaled from 6xl to 4xl/3xl */}
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <h2 className="text-3xl lg:text-5xl  font-bold tracking-tight mb-3">
             {renderTitle(title)}
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed">
             {description}
           </p>
         </div>

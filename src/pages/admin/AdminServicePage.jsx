@@ -148,7 +148,7 @@ export default function ServicePageCMS() {
       <p className="mt-4 text-slate-500 font-medium ">Loading Service Page...</p>
     </div>
   );
-
+ 
   return (
     <div className="max-w-7xl mx-auto space-y-8 pb-20 ">
       <ToastContainer position="top-right" autoClose={3000} />
@@ -162,7 +162,7 @@ export default function ServicePageCMS() {
           onClick={() => setNewServiceModal(true)}
           className="flex cursor-pointer items-center justify-center gap-2 bg-[#002b80] hover:bg-black text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-blue-100"
         >
-          <PlusIcon className="h-5 w-5" /> Add New Service Page
+          <PlusIcon className="h-5 w-5" />  Add Service 
         </button>
       </div>
 

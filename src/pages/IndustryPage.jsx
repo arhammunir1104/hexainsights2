@@ -25,7 +25,7 @@ function IndustryPage() {
   useEffect(() => {
     const fetchIndustryData = async () => {
       if (!uid) return;
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0); 
 
       try {
         setLoading(true);
@@ -52,7 +52,7 @@ function IndustryPage() {
   }, [uid, navigate]);
 
   if (loading) return <Reloader />;
-
+ 
   return (
     <>
       {/* Banner dynamically uses bannerData from Firestore */}

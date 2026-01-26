@@ -63,7 +63,7 @@ function HeroBackground() {
         from-[#fbcfe8]/40 via-[#bfdbfe]/30 to-transparent
         blur-3xl opacity-90 pointer-events-none">
       </div>
-
+ 
       <div className="relative z-10">
         {/* Passing BannerSection to Hero */}
         <HomepageHero data={pageData?.BannerSection} />

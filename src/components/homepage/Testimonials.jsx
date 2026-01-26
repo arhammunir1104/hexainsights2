@@ -37,13 +37,13 @@ const Testimonials = () => {
   if (loading) return null;
 
   return (
-    <section className="relative py-16 lg:py-20 bg-white overflow-hidden ">
+    <section className="relative py-8 bg-white overflow-hidden ">
       {/* Background Decor - Subtle scale down */}
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Heading - Scaled from 5xl to 4xl */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight ">
+          <h2 className="text-3xl lg:text-5xl  font-bold tracking-tight ">
             <span className="text-[#002b80]">Our</span>{" "}
             <span className="text-[#3b82f6]">Clients</span>{" "}
             <span className="text-[#002b80]">Say</span>

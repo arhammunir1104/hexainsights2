@@ -48,7 +48,7 @@ const ServiceStaffComponent = ({ pageUid = "home", show = true }) => {
   if (loading || data.staff.length === 0) return null;
 
   return (
-    <div className="py-8 px-6 md:px-12 lg:px-24  relative overflow-hidden bg-white">
+    <div className="py-8 lg:py-16 px-6 md:px-12 lg:px-24  relative overflow-hidden bg-white">
       
       {/* Subtle Background Scribble - Scaled down */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
@@ -60,7 +60,7 @@ const ServiceStaffComponent = ({ pageUid = "home", show = true }) => {
 
       {/* Heading Section - Scaled from 5xl to 3xl/4xl */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#001D84] tracking-tight">
+        <h2 className="text-3xl lg:text-5xl font-bold text-[#001D84] tracking-tight">
           {renderTitle(data.title)}
         </h2>
         <div className="w-16 h-1 bg-blue-500/20 mx-auto mt-3 rounded-full"></div>

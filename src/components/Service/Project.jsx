@@ -29,7 +29,7 @@ const ProjectsDelivered = ({ header, page }) => {
         setLoading(false);
       }
     };
-    fetchProjects();
+    fetchProjects(); 
   }, [page]);
 
   const renderTitle = (fullTitle) => {
@@ -42,7 +42,7 @@ const ProjectsDelivered = ({ header, page }) => {
             src={arrowImage} 
             alt="decorative arrow" 
             className="w-full h-auto object-contain opacity-80"
-          />
+          /> 
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tight mb-2 text-center z-10 relative">
           <span className="text-[#002b80]">{words[0]}</span>{" "}
@@ -68,9 +68,9 @@ const ProjectsDelivered = ({ header, page }) => {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center text-3xl lg:text-5xl  mb-12">
           {renderTitle(header?.title)}
-          <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto mt-3 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-xl mx-auto mt-3 leading-relaxed">
             {header?.description || "Providing cutting-edge digital solutions tailored to your business needs."}
           </p>
         </div>

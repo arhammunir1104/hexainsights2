@@ -111,7 +111,7 @@ export default function HomePageCMS() {
       
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-[#002b80] tracking-tight">Home Page CMS</h1>
+          <h1 className="text-3xl font-bold text-[#002b80] tracking-tight">Home Page</h1>
           <p className="text-slate-500 text-sm mt-1">Manage content, images, and CTA links for the homepage.</p>
         </div>
       </div>

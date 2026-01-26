@@ -77,7 +77,7 @@ const Faq = () => {
   );
 
   return (
-    <section className="relative py-16 bg-white overflow-hidden">
+    <section className="relative py-8 bg-white overflow-hidden">
       
       {/* DECORATION - Scaled down */}
        {/* FIXED GRADIENT: Reduced size and opacity */}
@@ -89,7 +89,7 @@ const Faq = () => {
       />
       <div className="max-w-6xl mx-auto px-6 relative z-10"> {/* Reduced max-w from 7xl for a tighter look */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight ">
+          <h2 className="text-3xl lg:text-5xl  font-bold tracking-tight ">
             <span className="text-[#002b80]">Frequently</span>{" "}
             <span className="text-[#3b82f6]">Asked</span>{" "}
             <span className="text-[#002b80]">Questions</span>

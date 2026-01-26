@@ -65,7 +65,7 @@ import industyImage from "/home-content/industry.png";
           {/* CONTENT */}
           <div className="relative z-10 max-w-3xl w-full">
             {/* Scaled down text-6xl to text-3xl/4xl */}
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 tracking-tight">
+            <h2 className="text-3xl lg:text-5xl  font-bold text-white mb-1 tracking-tight">
               Industries We Serve
             </h2>
 
@@ -77,7 +77,7 @@ import industyImage from "/home-content/industry.png";
             </div>
 
             {/* DESCRIPTION: Scaled down text-md to text-sm/base */}
-            <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6 max-w-xl mx-auto font-normal">
+            <p className="text-white/90 text-base md:text-lg leading-relaxed mb-6 max-w-xl mx-auto font-normal">
               Explore the range of services designed to meet your needs. From expert video production to strategic marketing, we provide tailored solutions that drive results.
             </p>
 

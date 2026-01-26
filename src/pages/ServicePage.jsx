@@ -17,11 +17,11 @@ import TechnologyWorkWith from '../components/Service/TechnologyWorkWith'
 function ServicePage() {
   const { serviceType } = useParams(); // URL param: /service/:serviceType
   const navigate = useNavigate();
-  
+   
   const [isReload, setIsReload] = useState(true);
   const [serviceData, setServiceData] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchServiceData = async () => {
       try {
         setIsReload(true);

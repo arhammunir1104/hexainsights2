@@ -45,14 +45,14 @@ const TechnologyWorkWith = ({ data }) => {
   if (loading) return null;
 
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section className="py-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section - Scaled down margins */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 text-3xl lg:text-5xl ">
           {renderTitle(title)}
           {description && (
-            <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mt-2 leading-relaxed">
+            <p className="text-base md:text-lg text-slate-600max-w-2xl mx-auto mt-2 leading-relaxed">
               {description}
             </p>
           )}

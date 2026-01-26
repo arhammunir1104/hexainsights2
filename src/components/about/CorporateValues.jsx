@@ -8,7 +8,7 @@ const CorporateValuesComponent = ({ data }) => {
 
   return (
     /* Scaled down py-20 to py-12 */
-    <section className="bg-white font-[Quicksand] relative overflow-hidden py-10 md:py-12">
+    <section className="bg-white py-8 relative overflow-hidden py-10 md:py-12">
       
       {/* Background Glow - Scaled down blur and size */}
       <div 
@@ -21,10 +21,10 @@ const CorporateValuesComponent = ({ data }) => {
         {/* Header Section - Scaled down mb-12 to mb-10 */}
         <div className="text-center mb-10">
           {/* Scaled down text-4xl to text-2xl/3xl */}
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+          <h2 className="text-3xl lg:text-5xl  font-bold mb-3">
             {renderTitle(data?.title)}
           </h2>
-          <p className="max-w-xl mx-auto text-gray-500 text-[11px] md:text-xs leading-relaxed">
+          <p className="max-w-xl mx-auto text-base md:text-lg text-slate-600leading-relaxed">
             {data?.description}
           </p>
         </div>

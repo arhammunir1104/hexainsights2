@@ -35,6 +35,7 @@ const DOC_ID = "main";
 // Cloudinary info
 const CLOUD_NAME = "dg3ade8dr";
 const UPLOAD_PRESET = "insights";
+const BRAND_COLOR = "#002b80";
 
 export default function AdminContact() {
   const [loading, setLoading] = useState(false);
@@ -157,7 +158,12 @@ export default function AdminContact() {
     setTargetPath(null);
   };
 
-  if (fetching) return <div className="p-20 text-center text-slate-500 font-medium">Loading Contact Page...</div>;
+   if (fetching) return (
+      <div className="flex flex-col items-center justify-center min-h-[50vh]">
+        <CircularProgress sx={{ color: BRAND_COLOR }} />
+        <p className="mt-4 text-slate-500 font-medium ">Loading Contact Page...</p>
+      </div>
+    );
 
   return (
     <div className="min-h-screen bg-[#f8fafc] py-10 px-4 ">

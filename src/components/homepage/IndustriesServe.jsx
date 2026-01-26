@@ -64,7 +64,7 @@ const IndustriesServe = () => {
           {/* CONTENT */}
           <div className="relative z-10 max-w-3xl w-full">
             {/* Header - Scaled from text-6xl to text-4xl */}
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-1 tracking-tight uppercase opacity-90">
+            <h2 className="text-3xl lg:text-5xl  font-bold text-white mb-1 tracking-tight uppercase opacity-90">
               Industries We Serve
             </h2>
 
@@ -76,7 +76,7 @@ const IndustriesServe = () => {
             </div>
 
             {/* DESCRIPTION - Reduced margin and font size */}
-            <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6 max-w-xl mx-auto font-normal">
+            <p className="text-white/80 text-base md:text-lg  leading-relaxed mb-6 max-w-xl mx-auto font-normal">
               Explore tailored solutions designed to drive results and help your brand stand out in your specific industry.
             </p>
 

@@ -212,7 +212,7 @@ export default function AdminTestimonial() {
       >
         <DialogTitle className="flex justify-between items-center pr-4">
           <span className="text-2xl font-black text-[#070778]">
-            {activeTestimonial ? "Edit Feedback" : "New Testimonial"}
+            {activeTestimonial ? "Edit Feedback" : "Add Testimonial"}
           </span>
           <IconButton onClick={() => setModalOpen(false)}>
             <XMarkIcon className="h-6 w-6 text-slate-400" />

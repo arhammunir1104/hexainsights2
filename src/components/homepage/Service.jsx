@@ -46,15 +46,15 @@ export default function Services({ data }) {
   if (loading) return <div className="py-16 text-center text-slate-400 text-sm">Loading Our Services...</div>;
 
   return (
-    <section className="relative py-16 lg:py-20 bg-white overflow-hidden">
+    <section className="relative py-8 lg:py-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header Section: Scaled down text and margins */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl lg:text-5xl  font-bold tracking-tight mb-4">
             {renderTitle(title)}
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             {description || "Tailored solutions designed to drive growth and efficiency for your business."}
           </p>
         </div>

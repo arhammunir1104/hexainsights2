@@ -37,7 +37,7 @@ function About({ data }) {
   if (!data) return null;
 
   return (
-    <section className="relative py-16 lg:py-20 bg-white overflow-hidden">
+    <section className="relative py-8 lg:py-8 bg-white overflow-hidden">
       
       {/* FIXED GRADIENT: Reduced size and opacity */}
       <div 
@@ -61,13 +61,13 @@ function About({ data }) {
         {/* RIGHT: CONTENT */}
         <div className="flex flex-col items-start">
           {/* Title: Reduced from text-6xl to text-4xl/5xl */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002b80] mb-5 tracking-tight flex items-center">
+          <h2 className="text-3xl lg:text-5xl  font-bold text-[#002b80] mb-5 tracking-tight flex items-center">
             {animatedTitle}
             <span className="inline-block w-[3px] h-8 md:h-10 text-[#002b80] ml-2 animate-pulse rounded-full" />
           </h2>
 
           {/* Description: Reduced from text-xl to text-base/lg */}
-          <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-8 font-normal max-w-lg">
+          <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 font-normal max-w-lg">
             {data.description}
           </p>
 

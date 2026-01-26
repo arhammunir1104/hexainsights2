@@ -44,6 +44,7 @@ const UPLOAD_PRESET = "insights";
 const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 const CASE_STUDIES_COLLECTION = "caseStudiesDB";
 const SERVICES_COLLECTION = "servicesDB";
+const BRAND_COLOR = "#070778";
 
 const defaultCaseStudy = {
   title: "",
@@ -157,11 +158,12 @@ export default function AdminCaseStudies() {
     }
   };
 
-  if (loading) return (
-    <div className="flex h-screen items-center justify-center bg-slate-50">
-      <CircularProgress sx={{ color: '#070778' }} />
-    </div>
-  );
+   if (loading) return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-slate-400 gap-4">
+        <CircularProgress size={30} sx={{ color: BRAND_COLOR }} />
+        <p className="font-medium animate-pulse">Loading Case Study Page...</p>
+      </div>
+    );
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] text-slate-900 pb-20">
@@ -183,7 +185,7 @@ export default function AdminCaseStudies() {
             className="flex cursor-pointer items-center justify-center gap-2 bg-[#070778] hover:bg-[#05055a] text-white font-bold py-4 px-8 rounded-2xl transition-all active:scale-95 shadow-xl shadow-blue-900/10"
           >
             <PlusIcon className="h-5 w-5" />
-            <span>Create New Study</span>
+            <span>Add Case Study</span>
           </button>
         </div>
       </div>
@@ -314,7 +316,7 @@ export default function AdminCaseStudies() {
                     cards: [...prev.cards, { heading: "", title: "", description: "", image: { url: "", public_id: "" } }]
                   }))}
                 >
-                  Add New Section
+                  New Section
                 </Button>
               </div>
 

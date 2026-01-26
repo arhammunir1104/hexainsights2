@@ -154,7 +154,7 @@ export default function FeaturedProjectsCMS() {
         {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#070778] tracking-tight">Featured Projects CMS</h1>
+            <h1 className="text-3xl sm:text-4xl font-black text-[#070778] tracking-tight">Featured Projects </h1>
             <p className="text-slate-500 mt-1 font-medium">Showcase your best work across services and industries.</p>
           </div>
           <button
@@ -162,7 +162,7 @@ export default function FeaturedProjectsCMS() {
             className="flex  cursor-pointer items-center justify-center gap-2 bg-[#070778] text-white px-6 py-3.5 rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:scale-[1.02] transition-all active:scale-95"
           >
             <PlusIcon className="h-5 cursor-pointer w-5 stroke-[3px]" />
-            Add New Project
+            Add Project
           </button>
         </div>
 

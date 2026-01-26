@@ -106,7 +106,7 @@ export default function FAQsCMS() {
           className="bg-[#070778] cursor-pointer hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
         >
           <PlusIcon className="h-5 w-5 stroke-[3px]" />
-          New Question
+          Add FAQS
         </button>
       </div>
 

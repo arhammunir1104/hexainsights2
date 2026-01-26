@@ -33,7 +33,7 @@ const HomepageHero = ({ data }) => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24 pb-16 w-full">
         <div className="max-w-xl">
           {/* Hero Heading - Scaled down from 7xl/6xl to 5xl/4xl */}
-          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-[#002b80] leading-[1.1] mb-5 tracking-tight whitespace-pre-line">
+          <h1 className="text-3xl lg:text-5xl font-bold text-[#002b80] leading-[1.1] mb-5 tracking-tight whitespace-pre-line">
             {title || "Your Project, \nDelivered Smarter"}
           </h1>
 
@@ -55,7 +55,7 @@ const HomepageHero = ({ data }) => {
               href={Ctr?.link || "#"}
               className="group flex items-center gap-2.5 px-8 py-3.5 text-white text-sm font-bold rounded-lg 
                         bg-gradient-to-r from-[#002b80] to-[#005eff] 
-                        shadow-lg shadow-blue-500/20 
+                       shadow-lg shadow-blue-500/20 
                         hover:shadow-blue-500/40 hover:-translate-y-0.5 
                         transition-all duration-300 active:scale-95"
             >

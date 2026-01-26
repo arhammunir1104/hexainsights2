@@ -36,6 +36,7 @@ const UPLOAD_PRESET = "insights";
 const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 const TECHNOLOGY_COLLECTION = "technologyDB";
 const SERVICES_COLLECTION = "servicesDB";
+const BRAND_COLOR = "#070778";
 
 export default function AdminTechnology() {
   const [techs, setTechs] = useState([]);
@@ -124,8 +125,9 @@ export default function AdminTechnology() {
   };
 
   if (loading) return (
-    <div className="flex h-64 items-center justify-center">
-        <CircularProgress sx={{ color: '#070778' }} />
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-slate-400 gap-4">
+          <CircularProgress size={30} sx={{ color: BRAND_COLOR }} />
+          <p className="font-medium animate-pulse tracking-widest text-xs uppercase">Loading Technology Page...</p>
     </div>
   );
 
@@ -147,7 +149,7 @@ export default function AdminTechnology() {
           className="bg-[#070778] cursor-pointer hover:bg-[#05055a] text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 shadow-xl shadow-blue-900/10 transition-all active:scale-95"
         >
           <PlusIcon className="h-5 w-5" />
-          Add New Technology
+          Add Technology
         </button>
       </div>
 

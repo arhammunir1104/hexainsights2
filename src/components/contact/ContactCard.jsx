@@ -84,7 +84,7 @@ const ContactCard = () => {
 
 
   return (
-    <section className="font-sans py-16 sm:py-24 bg-gray-50 flex justify-center items-center">
+    <section className="font-sans py-8 bg-gray-50 flex justify-center items-center">
       
       {/* CRITICAL CHANGE: Added 'relative' class here so 'absolute' elements inside 
         (like the notification) are positioned relative to this container.

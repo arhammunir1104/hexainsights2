@@ -5,7 +5,7 @@ const AboutContent2 = ({ data }) => {
   if (!data || data.length === 0) return null;
 
   return (
-    <div className="bg-white text-gray-800 font-[Quicksand]">
+    <div className="bg-white py-8 text-gray-800 ">
       {/* Scaled down container padding from py-10 to py-6 */}
       <div className="container mx-auto py-6 px-6 lg:px-16">
         {/* Tightened gap between alternating rows from gap-16 to gap-10 */}

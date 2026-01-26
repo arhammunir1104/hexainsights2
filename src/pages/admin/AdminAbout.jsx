@@ -163,7 +163,7 @@ export default function AdminAboutPage() {
       
       <header className="flex justify-between items-end">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#002b80] tracking-tight">About Us CMS</h1>
+          <h1 className="text-3xl font-extrabold text-[#002b80] tracking-tight">About Us</h1>
           <p className="text-slate-500 mt-1">Configure your brand story, mission cards, and corporate values.</p>
         </div>
         <button 

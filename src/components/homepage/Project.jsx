@@ -35,15 +35,15 @@ const ProjectsDelivered = ({ data }) => {
   const renderTitle = (fullTitle) => {
     const words = (fullTitle || "Projects We Delivered").split(" ");
     return (
-      <div className="relative inline-block">
+      <div className=" inline-block">
         {/* Decorative Arrow - Scaled down from w-24 to w-16 */}
-        <div className="absolute -top-6 -left-8 md:-top-10 md:-left-12 w-12 md:w-16 lg:w-20 pointer-events-none z-20">
-          <img 
-            src={arrowImage} 
-            alt="decorative arrow" 
-            className="w-full h-auto object-contain opacity-80"
-          />
-        </div>
+        <div className="absolute -top-6  left-14 md:-top-3 md:left-16 w-24 md:w-28 lg:w-32 pointer-events-none z-20">
+                  <img 
+                    src={arrowImage} 
+                    alt="decorative arrow" 
+                    className="w-full h-auto object-contain opacity-80"
+                  /> 
+                </div>
         <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tight mb-2 text-center z-10 relative">
           <span className="text-[#002b80]">{words[0]}</span>{" "}
           <span className="text-[#3b82f6] font-medium">{words[1]}</span>{" "}
@@ -56,7 +56,7 @@ const ProjectsDelivered = ({ data }) => {
   if (loading) return null;
 
   return ( 
-    <section className="relative py-16 lg:py-20 bg-white overflow-hidden">
+    <section className="relative py-16  bg-white overflow-hidden">
       
       {/* Background Glow - Scaled down blur and size */}
        {/* FIXED GRADIENT: Reduced size and opacity */}
@@ -68,9 +68,9 @@ const ProjectsDelivered = ({ data }) => {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 text-3xl lg:text-5xl ">
           {renderTitle(data?.title)}
-          <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto mt-3 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-xl mx-auto mt-3 leading-relaxed">
             {data?.description || "Providing cutting-edge digital solutions tailored to your business needs."}
           </p>
         </div>

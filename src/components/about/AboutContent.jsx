@@ -16,17 +16,17 @@ const AboutContent = ({ data }) => {
   };
 
   return (
-    <div className="bg-white text-gray-800 font-[Quicksand]">
+    <div className="bg-whit py-8 text-gray-800 ">
       {/* Scaled down py-12 to py-8 for a more compact vertical footprint */}
       <div className="container mx-auto px-6 py-8">
         {/* Top Section - Centered and Resized */}
         <div className="text-center max-w-4xl mx-auto">
           {/* Scaled down from text-4xl to text-2xl/3xl */}
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
+          <h2 className="text-3xl lg:text-5xl  font-bold tracking-tight mb-3">
             {renderTitle(data?.title)}
           </h2>
           {/* Scaled down text-base to text-sm */}
-          <p className="text-gray-500 text-xs md:text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             {data?.description || "Description loading..."}
           </p>
         </div>       

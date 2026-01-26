@@ -342,7 +342,7 @@ const NewIndustryModal = ({ onCreate }) => {
   return (
     <>
       <button onClick={() => setOpen(true)} className="flex  cursor-pointer items-center justify-center gap-2 bg-[#002b80] hover:bg-black text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-blue-100">
-        <PlusIcon className="h-5 w-5" /> New Industry
+        <PlusIcon className="h-5 w-5" /> Add Industry
       </button>
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="xs" PaperProps={{ sx: { borderRadius: '2rem' } }}>
         <DialogTitle sx={{ fontWeight: 800, color: BRAND_COLOR }}>Initialize Page</DialogTitle>

@@ -49,7 +49,7 @@ const TechnologyWorkWith = ({page}) => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section - Tightened margin */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center text-3xl lg:text-5xl  mb-10 md:mb-12">
           {renderTitle("Technologies We Work With")}
         </div>
 

@@ -100,10 +100,10 @@ const Contact = () => {
         
         {/* Shrunken Heading Section */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#002b80]">
+          <h2 className="text-3xl lg:text-5xl  font-bold text-[#002b80]">
            {dbContent.header?.title}
           </h2>
-          <p className="max-w-2xl mx-auto mt-2 text-gray-500 text-xs md:text-sm leading-relaxed">
+          <p className="max-w-2xl mx-auto mt-2 text-base md:text-lg text-slate-600 leading-relaxed">
             {dbContent.header?.description}
           </p>
         </div>
@@ -168,7 +168,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT FORM - Reduced Gaps */}
-          <div className="lg:w-[65%]  p-8 md:p-10 bg-white">
+          <div className="lg:w-[65%] py-8  p-8 md:p-10 bg-white">
             {/* FIXED GRADIENT: Reduced size and opacity */}
       
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">

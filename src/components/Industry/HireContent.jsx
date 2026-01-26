@@ -2,7 +2,7 @@ import React from 'react';
 
 const HireContent = () => {
   return (
-    <div className="bg-white text-gray-800 font-[Quicksand] p-8 lg:p-16">
+    <div className="bg-white text-gray-800 py-9 p-8 lg:p-16">
       {/* Top Section */}
       <div className="text-left mb-8 lg:mb-12">
         <p className="text-black uppercase font-semibold text-sm mb-2">
