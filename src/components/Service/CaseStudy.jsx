@@ -7,28 +7,34 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 const BlogCard = ({ data }) => {
   const formatDate = (dateString) => {
     if (!dateString) return 'RECENT';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    }).toUpperCase();
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return 'RECENT';
+      return date.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      }).toUpperCase();
+    } catch (e) {
+      return 'RECENT';
+    }
   };
 
   return (
-    <NavLink to={`/blog/${data.id}`} className="block">
+    <NavLink to={`/blog/${data?.id}`} className="block">
       {/* Reduced height from 400px to 320px and padding from p-10 to p-8 */}
       <div className="relative p-6 md:p-8 rounded-xl bg-[#0a0a0a] h-[320px] overflow-hidden group transition-all duration-500 transform hover:scale-[1.01] shadow-lg border border-white/5">
         
-        {data.bannerImage?.url ? (
+        {data?.bannerImage?.url ? (
           <img 
             src={data.bannerImage.url} 
-            alt={data.title}
+            alt={data?.title || "Case Study"}
             // Reduced base opacity for a subtler look
             className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
             onError={(e) => {
               e.target.onerror = null;
               e.target.style.background = 'black';
+              e.target.src = "/placeholder-blog.png";
             }}
           />
         ) : (
@@ -38,17 +44,17 @@ const BlogCard = ({ data }) => {
         <div className="relative z-10 flex flex-col h-full justify-between">
           <div>
             <p className="text-[10px] font-bold tracking-[0.2em] text-blue-500 uppercase mb-3">
-              {formatDate(data.uploadDate)}
+              {formatDate(data?.uploadDate)}
             </p>
 
             {/* Scaled down heading from text-3xl to text-xl/2xl */}
             <h3 className="text-xl md:text-2xl font-bold text-white leading-tight mb-3 transition-colors duration-300 group-hover:text-blue-400">
-              {data.title}
+              {data?.title}
             </h3>
 
             {/* Refined description text size */}
             <p className="text-[13px] md:text-sm text-gray-400 leading-relaxed max-w-md line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">
-              {data.description}
+              {data?.description}
             </p> 
           </div>
           
@@ -102,7 +108,7 @@ const CaseStudy = ({ page, header }) => {
   };
 
   return (
-    <section className="py-8 bg-white ">
+    <section className="py-12 lg:py-20 bg-white ">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center text-3xl lg:text-5xl  mb-12">

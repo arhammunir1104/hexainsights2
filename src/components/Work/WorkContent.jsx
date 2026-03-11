@@ -2,7 +2,7 @@ import React  from 'react';
 
 const WorkContent = () => {
   return (
-    <div  className="bg-white  pt-20 text-gray-800  p-8 lg:px-16 ">
+    <div  className="bg-white  py-12 lg:py-20 text-gray-800  p-8 lg:px-16 ">
       {/* Top Section */}
       <div className="text-center mb-4 lg:mb-6">
         

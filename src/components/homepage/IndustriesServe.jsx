@@ -47,7 +47,7 @@ const IndustriesServe = () => {
   const currentItem = industries[currentIndex];
 
   return (
-    <section className="px-4 py-8 md:px-12 bg-white">
+    <section className="px-4 py-12 lg:py-20 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Main Banner - Reduced height from 420px to 340px */}
         <div 

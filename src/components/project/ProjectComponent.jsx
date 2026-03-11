@@ -3,7 +3,7 @@ import React from 'react';
 const ProjectComponent = ({ data }) => {
   if (!data) return null;
  
-  return ( 
+  return (  
     /* Scaled down top margin from 10% to 48px and bottom from 5% to 32px */
     <div className="w-full py-8 mt-12 mb-8 bg-white ">
       {/* ================= SECTION 1: BANNER ================= */}
@@ -15,9 +15,10 @@ const ProjectComponent = ({ data }) => {
             {data?.title}
           </h1>
           
+           
           {/* Scaled down text-xl to text-base */}
           <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed  font-medium">
-            {data?.banner?.description}
+            {data?.banner?.description || data?.description}
           </p>
         </div>
       </section>
@@ -25,7 +26,7 @@ const ProjectComponent = ({ data }) => {
       {/* ================= SECTION 2: SUBSECTION CARDS ================= */}
  <div className="container mx-auto py-10 px-6 lg:px-16">
         <div className="flex flex-col gap-16">
-          {data?.subSection?.cards.map((card, index) => {
+          {(data?.subSection?.cards || data?.subsection?.cards || []).map((card, index) => {
             // Determine if the index is even or odd for alternating layout
             const isEven = index % 2 === 0;
 
@@ -39,8 +40,8 @@ const ProjectComponent = ({ data }) => {
                 {/* Image Section */}
                 <div className="w-full lg:w-1/2">
                   <img
-                    src={card.image || "/about/img2.png"}
-                    alt={card.heading || "About Illustration"}
+                    src={card?.image || card?.icon || "/about/img2.png"}
+                    alt={card?.heading || card?.text || "Project Illustration"}
                     className="w-full h-auto rounded-2xl shadow-sm object-cover"
                     onError={(e) => { e.target.src = "/about/img2.png"; }} // Fallback if image fails
                   />
@@ -49,13 +50,13 @@ const ProjectComponent = ({ data }) => {
                 {/* Content Section */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center">
                   <h3 className="text-lg font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent mb-2 uppercase tracking-wide">
-                    {card.heading}
+                    {card?.heading || card?.text}
                   </h3>
                   <h2 className="text-2xl lg:text-3xl font-bold mb-4 leading-tight text-[#002b80]">
-                    {card.title}
+                    {card?.title || card?.text}
                   </h2>
                   <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                    {card.description}
+                    {card?.description}
                   </p>
                 </div>
               </div>

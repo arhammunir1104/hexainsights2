@@ -5,10 +5,10 @@ const ProjectComponent = ({ data }) => {
  
   return ( 
     /* Scaled down top margin from 10% to 48px and bottom from 5% to 32px */
-    <div className="w-full py-8 mt-12 mb-8 bg-white ">
+    <div className="w-full py-12 lg:py-20 bg-white ">
       {/* ================= SECTION 1: BANNER ================= */}
       {/* Scaled down py-16 to py-10 */}
-      <section className="py-10 px-6 md:px-12 lg:px-24 text-center border-b border-gray-100">
+      <section className="px-6 md:px-12 lg:px-24 text-center border-b border-gray-100">
         <div className="max-w-4xl mx-auto">
           {/* Scaled down text-5xl to text-3xl/4xl */}
           <h1 className="text-3xl lg:text-5xl  font-bold text-[#002b80] leading-[1.1] mb-5 tracking-tight whitespace-pre-line">
@@ -23,7 +23,7 @@ const ProjectComponent = ({ data }) => {
       </section>
 
       {/* ================= SECTION 2: SUBSECTION CARDS ================= */}
- <div className="container mx-auto py-10 px-6 lg:px-16">
+ <div className="container mx-auto px-6 lg:px-16">
         <div className="flex flex-col gap-16">
           {data?.cards.map((card, index) => {
             // Determine if the index is even or odd for alternating layout

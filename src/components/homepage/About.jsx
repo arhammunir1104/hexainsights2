@@ -37,7 +37,7 @@ function About({ data }) {
   if (!data) return null;
 
   return (
-    <section className="relative py-8 lg:py-8 bg-white overflow-hidden">
+    <section className="relative py-12 lg:py-20 bg-white overflow-hidden">
       
       {/* FIXED GRADIENT: Reduced size and opacity */}
       <div 

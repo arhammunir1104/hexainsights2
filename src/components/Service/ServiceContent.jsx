@@ -2,13 +2,12 @@ import React from 'react';
 
 const ServiceContent = ({ data }) => {
   // Safety check: If no data are provided, don't render the section
-  if (!data || data.length === 0) return null;
-
+  if (!data) return null;
 
     const renderTitle = (fullTitle) => {
     if (!fullTitle) return <span className="text-[#002b80]">About Us</span>;
     
-    const words = fullTitle.split(" ");
+    const words = String(fullTitle).split(" ");
     return (
       <>
         <span className="text-[#002b80]">{words[0]}</span>{" "}
@@ -20,25 +19,25 @@ const ServiceContent = ({ data }) => {
 
 
   return (
-    <div className="bg-white py-8 text-gray-800 ">
+    <div className="bg-white py-12 lg:py-20 text-gray-800 ">
 
        <div className="bg-white text-gray-800 ">
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-6">
         {/* Top Section - Centered and Resized */}
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-5xl  font-bold tracking-tight mb-4">
             {renderTitle(data?.title)}
           </h2>
           <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            {data?.description || "Description loading..."}
+            {data?.description || "Inspiration and insights for your digital journey."}
           </p>
         </div>       
       </div>
     </div>
 
-      <div className="container mx-auto py-10 px-6 lg:px-16">
+      <div className="container mx-auto px-6 lg:px-16">
         <div className="flex flex-col gap-16">
-          {data?.cards.map((card, index) => {
+          {(data?.cards || []).map((card, index) => {
             // Determine if the index is even or odd for alternating layout
             const isEven = index % 2 === 0;
 
@@ -52,8 +51,8 @@ const ServiceContent = ({ data }) => {
                 {/* Image Section */}
                 <div className="w-full lg:w-1/2">
                   <img
-                    src={card.image || "/about/img2.png"}
-                    alt={card.heading || "About Illustration"}
+                    src={card?.image || "/about/img2.png"}
+                    alt={card?.heading || "Service Illustration"}
                     className="w-full h-auto rounded-2xl shadow-sm object-cover"
                     onError={(e) => { e.target.src = "/about/img2.png"; }} // Fallback if image fails
                   />
@@ -62,13 +61,13 @@ const ServiceContent = ({ data }) => {
                 {/* Content Section */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center">
                   <h3 className="text-lg font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent mb-2 uppercase tracking-wide">
-                    {card.heading}
+                    {card?.heading}
                   </h3>
                   <h2 className="text-2xl lg:text-3xl font-bold mb-4 leading-tight text-[#002b80]">
-                    {card.text}
+                    {card?.text || card?.title}
                   </h2>
                   <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-                    {card.description}
+                    {card?.description}
                   </p>
                 </div>
               </div>

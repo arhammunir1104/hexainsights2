@@ -12,6 +12,7 @@ import WorkPage from './pages/WorkPage';
 import About from './pages/About';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
+import BlogsListing from './pages/BlogsListing';
 
 // Admin imports
 import AdminLogin from './pages/admin/AdminLogin';
@@ -37,6 +38,7 @@ import AdminFooter from './pages/admin/AdminFooter';
 import Project from './pages/Project';
 import AdminStaff from './pages/admin/AdminStaff';
 import AdminFeedbackPage from './pages/admin/AdminFeedback';
+import AdminBlogs from './pages/admin/AdminBlogs';
 // import AdminAdmin from './pages/admin/AdminAdmin';
 
  
@@ -78,6 +80,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<ContactPage />} />
           <Route path="/blog/:uid" element={<BlogPage />} />
+          <Route path="/blogs" element={<BlogsListing />} />
           <Route path="/project/:uid" element={<Project />} />
           
 
@@ -266,6 +269,17 @@ function App() {
               <AdminProtectedRoute>
                 <AdminLayout>
                   <AdminFeedbackPage />
+                </AdminLayout>
+              // </AdminProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/blogs-page"
+            element={
+              <AdminProtectedRoute>
+                <AdminLayout>
+                  <AdminBlogs />
                 </AdminLayout>
               // </AdminProtectedRoute>
             }

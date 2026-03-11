@@ -8,7 +8,7 @@ const CorporateValuesComponent = ({ data }) => {
 
   return (
     /* Scaled down py-20 to py-12 */
-    <section className="bg-white py-8 relative overflow-hidden py-10 md:py-12">
+    <section className="bg-white py-12 lg:py-20 relative overflow-hidden">
       
       {/* Background Glow - Scaled down blur and size */}
       <div 
@@ -31,7 +31,7 @@ const CorporateValuesComponent = ({ data }) => {
 
         {/* Values Grid - Tightened gap from 8 to 6 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data?.corporateCards.map((value, index) => (
+          {(data?.corporateCards || []).map((value, index) => (
             <div
               key={index}
               className="group relative flex flex-col items-center text-center p-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-xl"
@@ -45,7 +45,7 @@ const CorporateValuesComponent = ({ data }) => {
               <div className="mb-4 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm">
                 <img 
                   src={value?.icon} 
-                  alt={value.title} 
+                  alt={value?.title || "Value Icon"} 
                   /* Scaled icon from 10 to 7 */
                   className="w-7 h-7 object-contain" 
                   onError={(e) => { e.target.src = 'https://img.icons8.com/color/96/ok--v1.png' }}
@@ -54,10 +54,10 @@ const CorporateValuesComponent = ({ data }) => {
 
               {/* Text Content - Scaled from text-lg to text-base */}
               <h3 className="text-base font-bold text-white mb-2">
-                {value.title}
+                {value?.title}
               </h3>
               <p className="text-blue-100/80 text-[11px] md:text-xs leading-relaxed max-w-[200px]">
-                {value.description}
+                {value?.description}
               </p>
             </div>
           ))}

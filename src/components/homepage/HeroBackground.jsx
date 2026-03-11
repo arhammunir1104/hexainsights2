@@ -66,16 +66,16 @@ function HeroBackground() {
  
       <div className="relative z-10">
         {/* Passing BannerSection to Hero */}
-        <HomepageHero data={pageData?.BannerSection} />
+        <HomepageHero data={pageData?.BannerSection || {}} />
         
         {/* Locations Section usually maps to TrustedBy or a Location grid */}
-        <TrustedBy data={pageData?.locationsSection} />
+        <TrustedBy data={pageData?.locationsSection || {}} />
         
         {/* Passing aboutSection to About */}
-        <About data={pageData?.aboutSection} />   
+        <About data={pageData?.aboutSection || {}} />   
         
         {/* Passing servicesWeOfferSection to Services */}
-        <Services data={pageData?.servicesWeOfferSection} />
+        <Services data={pageData?.servicesWeOfferSection || {}} />
   
         <IndustriesServe />
 

@@ -57,16 +57,16 @@ function IndustryPage() {
     <>
       {/* Banner dynamically uses bannerData from Firestore */}
       <Banner 
-        data={industryData?.bannerData} 
+        data={industryData?.bannerData || {}} 
       />
 
        
-      <ServicesContent data={industryData?.subSection}  />
+      <ServicesContent data={industryData?.subSection || {}}  />
 
       {/* Passing data to IndustryContent for the specific layout in image_13d0b6.png */}
-      <ServicesServe page={industryData?.title} />
+      <ServicesServe page={industryData?.title || "Industry"} />
       {/* Projects filtered by the industry uid */}
-      <Project header={industryData?.projectSection} page={industryData?.title}  /> 
+      <Project header={industryData?.projectSection || {}} page={industryData?.title || "Industry"}  /> 
 
       {/* <HireContent data={industryData?.hireSection} /> */}
 

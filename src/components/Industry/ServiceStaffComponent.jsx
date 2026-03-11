@@ -48,7 +48,7 @@ const ServiceStaffComponent = ({ pageUid = "home", show = true }) => {
   if (loading || data.staff.length === 0) return null;
 
   return (
-    <div className="py-8 lg:py-16 px-6 md:px-12 lg:px-24  relative overflow-hidden bg-white">
+    <div className="py-12 lg:py-20 px-6 md:px-12 lg:px-24  relative overflow-hidden bg-white">
       
       {/* Subtle Background Scribble - Scaled down */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">

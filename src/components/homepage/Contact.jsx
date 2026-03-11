@@ -87,7 +87,7 @@ const Contact = () => {
   if (loading || !dbContent) return null;
 
   return (
-    <section id='contact' className="w-full relative py-10 md:py-16 bg-white ">
+    <section id='contact' className="w-full relative py-12 lg:py-20 bg-white ">
       <div className="max-w-6xl mx-auto px-6">
 
          {/* FIXED GRADIENT: Reduced size and opacity */}

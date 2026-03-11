@@ -17,6 +17,7 @@ const HomepageHero = ({ data }) => {
           src={image?.url || "/home-hero.png"} 
           alt={title || "Hero Image"}
           className="w-full h-full object-cover object-right lg:object-center opacity-95"
+          onError={(e) => { e.target.src = "/home-hero.png"; }}
         />
 
         {/* LIGHTER GRADIENT OVERLAY */}

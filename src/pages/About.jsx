@@ -42,22 +42,20 @@ function About() {
     return (
         <>
             <Banner 
-                data={aboutData.BannerSection}
+                data={aboutData?.BannerSection || {}}
             />
  
-            {/* Pass empty objects/arrays as fallbacks to prevent .split() errors in children */}
+            {/* Pass empty objects/arrays as fallbacks to prevent errors in children */}
             <AboutContent 
-            data={aboutData.subSection}
-                // data={aboutData.subSection || {}} 
-                // cards={aboutData.cards || []} 
+                data={aboutData?.subSection || {}} 
             />
              
             <AboutContent2 
-                data={aboutData.cards || []} 
+                data={aboutData?.cards || []} 
             />
 
             <CorporateValuesComponent 
-                data={aboutData.corporateSection || {}} 
+                data={aboutData?.corporateSection || {}} 
             />
 
             <ServicesServe />

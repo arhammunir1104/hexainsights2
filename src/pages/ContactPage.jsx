@@ -49,7 +49,7 @@ function ContactPage() {
     :
     <>
     
-    <Banner data={contactData} />
+    <Banner data={contactData || {}} />
     {/* <ContactCard  /> */}
     <Contact />
     

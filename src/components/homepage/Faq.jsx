@@ -32,9 +32,10 @@ const Faq = () => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const midIndex = Math.ceil(faqData.length / 2);
-  const leftColumn = faqData.slice(0, midIndex);
-  const rightColumn = faqData.slice(midIndex);
+  const safeFaqData = faqData || [];
+  const midIndex = Math.ceil(safeFaqData.length / 2);
+  const leftColumn = safeFaqData.slice(0, midIndex);
+  const rightColumn = safeFaqData.slice(midIndex);
 
   if (loading) return null;
 
@@ -77,7 +78,7 @@ const Faq = () => {
   );
 
   return (
-    <section className="relative py-8 bg-white overflow-hidden">
+    <section className="relative py-12 lg:py-20 bg-white overflow-hidden">
       
       {/* DECORATION - Scaled down */}
        {/* FIXED GRADIENT: Reduced size and opacity */}
@@ -98,10 +99,10 @@ const Faq = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:gap-x-10">
           <div className="flex flex-col">
-            {leftColumn.map((item) => <AccordionItem key={item.id} item={item} />)}
+            {leftColumn.map((item) => <AccordionItem key={item?.id} item={item} />)}
           </div>
           <div className="flex flex-col">
-            {rightColumn.map((item) => <AccordionItem key={item.id} item={item} />)}
+            {rightColumn.map((item) => <AccordionItem key={item?.id} item={item} />)}
           </div>
         </div>
 

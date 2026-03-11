@@ -48,7 +48,7 @@ import industyImage from "/home-content/industry.png";
 
   return (
     /* Scaled down py-10 to py-8 */
-    <section className="px-4 py-8 md:px-12 bg-white ">
+    <section className="px-4 py-12 lg:py-20 md:px-12 bg-white ">
       <div className="max-w-7xl mx-auto">
         <div 
           /* Scaled down height from 420px to 320px and rounded corners from 3rem to 1.5rem */

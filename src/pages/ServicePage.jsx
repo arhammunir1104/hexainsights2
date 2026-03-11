@@ -63,13 +63,13 @@ function ServicePage() {
         />
          
         {/* Pass fetched data to your content component */}
-        <ServicesContent data={serviceData?.subSection}  />
+        <ServicesContent data={serviceData?.subSection || {}}  />
 
-        <TechnologyWorkWith page={serviceData?.title} />
+        <TechnologyWorkWith page={serviceData?.title || "Technology"} />
          
-        <ServiceStaffComponent pageUid={serviceData?.uid} show={false} /> 
-        <Project header={serviceData?.projectSection} page={serviceData?.title} />
-        <CaseStudy  page={serviceData?.title} header={serviceData?.caseStudy} /> 
+        <ServiceStaffComponent pageUid={serviceType} show={false} /> 
+        <Project header={serviceData?.projectSection || {}} page={serviceData?.title || "Industry"} />
+        <CaseStudy  page={serviceData?.title || "Industry"} header={serviceData?.caseStudy || {}} /> 
         <Contact />
       </>
     )

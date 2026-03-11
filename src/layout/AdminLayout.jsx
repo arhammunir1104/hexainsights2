@@ -6,7 +6,7 @@ import {
   LayoutDashboard, Home, Layers, Briefcase, Phone, 
   FolderRoot, Info, Cpu, Users, Presentation, 
   FileText, HelpCircle, MessageSquare, UserCircle, 
-  Settings, LogOut, ChevronLeft, Menu, X, Inbox
+  Settings, LogOut, ChevronLeft, Menu, X, Inbox, BookOpen
 } from "lucide-react";
 
 export default function AdminLayout({ children }) {
@@ -46,6 +46,7 @@ export default function AdminLayout({ children }) {
         { name: "Projects", icon: <Presentation size={20} />, path: "/admin/projects-page" },
         // { name: "Our Work", icon: <FolderRoot size={20} />, path: "/admin/ourwork-page" },
         { name: "Case Study", icon: <FileText size={20} />, path: "/admin/casestudy-page" },
+        { name: "Blogs", icon: <BookOpen size={20} />, path: "/admin/blogs-page" },
         { name: "Technology", icon: <Cpu size={20} />, path: "/admin/technology-page" },
       ]
     },

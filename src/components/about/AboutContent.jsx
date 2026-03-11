@@ -16,9 +16,9 @@ const AboutContent = ({ data }) => {
   };
 
   return (
-    <div className="bg-whit py-8 text-gray-800 ">
+    <div className="bg-white py-12 lg:py-20 text-gray-800 ">
       {/* Scaled down py-12 to py-8 for a more compact vertical footprint */}
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-6">
         {/* Top Section - Centered and Resized */}
         <div className="text-center max-w-4xl mx-auto">
           {/* Scaled down from text-4xl to text-2xl/3xl */}

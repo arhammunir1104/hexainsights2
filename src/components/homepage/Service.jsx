@@ -46,7 +46,7 @@ export default function Services({ data }) {
   if (loading) return <div className="py-16 text-center text-slate-400 text-sm">Loading Our Services...</div>;
 
   return (
-    <section className="relative py-8 lg:py-8 bg-white overflow-hidden">
+    <section className="relative py-12 lg:py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header Section: Scaled down text and margins */}
@@ -69,7 +69,7 @@ export default function Services({ data }) {
             >
               {/* Card Container: Changed aspect ratio and reduced rounding */}
               <div className="w-full aspect-[4/3.5] rounded-[1.8rem] p-6 flex flex-col items-center justify-around text-center 
-                              bg-gradient-to-b from-[#e0f2fe] via-[#3b82f6] to-[#1d4ed8] shadow-lg shadow-blue-100/40">
+                              bg-gradient-to-b from-[#4F9CFF] via-[#001E74] to-[#001E74] shadow-lg shadow-blue-100/40">
                 
                 {/* Icon Circle: Scaled down from w-28 to w-20 */}
                 <div className="w-20 h-20 rounded-full bg-white/95 flex items-center justify-center p-4 shadow-md mb-6 transform  transition-transform duration-500">

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 // Icons
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import EmailIcon from '@mui/icons-material/Email';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -40,100 +40,131 @@ const Footer = () => {
         return () => unsub();
     }, []);
 
-    const socialIconMap = {
-        linkedin: <LinkedInIcon sx={{ fontSize: 16 }} />,
-        facebook: <FacebookIcon sx={{ fontSize: 16 }} />,
-        instagram: <InstagramIcon sx={{ fontSize: 16 }} />,
-        twitter: <TwitterIcon sx={{ fontSize: 16 }} />,
-        youtube: <YouTubeIcon sx={{ fontSize: 16 }} />,
-    };
+    // Hardcoded items to match mockup exactly
+    const mockServices = [
+        { name: "Web Development", link: "/services/web-development" },
+        { name: "Mobile Development", link: "/services/mobile-development" },
+        { name: "UI/UX", link: "/services/ui-ux" }
+    ];
 
-    if (!footerData) return null;
+    const mockIndustries = [
+        { name: "Healthcare", link: "/industry/healthcare" },
+        { name: "Fintech", link: "/industry/fintech" },
+        { name: "Real Estate", link: "/industry/real-estate" }
+    ];
 
     return (
-        <footer className="bg-white py-12 border-t border-slate-50">
+        <footer className="bg-white py-10 border-t border-slate-50 font-sans">
             <div className="max-w-7xl mx-auto px-6">
-                {/* GRID ADJUSTMENT: 
-                   Changed lg:grid-cols-12 to ensure 5 columns fit in 1 row.
-                   Column spans updated to: 3 + 2 + 2 + 2 + 3 = 12 
-                */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
                     
-                    {/* 1. Left Section: Branding & Contact (Spans 3) */}
+                    {/* 1. Left Section: Branding & Contact */}
                     <div className="lg:col-span-3 flex flex-col">
                         <NavLink to="/">
-                            <img src="/logo.png" alt="Logo" className="h-8 w-auto mb-2" />
+                            <img src="/logo.png" alt="Hexainsights Logo" className="h-12 w-auto mb-4 object-contain" />
                         </NavLink>
                         
-                        <div className="mt-4 space-y-2.5">
-                            {footerData.phoneNo?.map((phone, i) => (
-                                <div key={i} className="flex items-center gap-2.5 text-slate-600 hover:text-blue-600 transition-colors cursor-pointer">
-                                    <WhatsAppIcon sx={{ fontSize: 16 }} className="text-blue-600" />
-                                    <span className="text-[13px] font-medium">{phone}</span>
+                        <div className="space-y-2">
+                            <div className="flex items-center gap-4 text-slate-500">
+                                <div className="p-2 bg-blue-50/50 rounded-lg">
+                                    <WhatsAppIcon sx={{ fontSize: 20 }} className="text-[#002b80]" />
                                 </div>
-                            ))}
-                            {footerData.email?.map((email, i) => (
-                                <div key={i} className="flex items-center gap-2.5 text-slate-600 hover:text-blue-600 transition-colors cursor-pointer">
-                                    <EmailIcon sx={{ fontSize: 16 }} className="text-blue-600" />
-                                    <span className="text-[13px] font-medium">{email}</span>
+                                <span className="text-[14px] font-medium">+92 406306068</span>
+                            </div>
+                            
+                            <div className="flex items-center gap-4 text-slate-500">
+                                <div className="p-2 bg-blue-50/50 rounded-lg">
+                                    <MailOutlineIcon sx={{ fontSize: 20 }} className="text-[#002b80]" />
                                 </div>
-                            ))}
+                                <span className="text-[14px] font-medium">Info@hexainsights.com</span>
+                            </div>
 
-                            <div className="pt-4 flex gap-2">
-                                {footerData.socialLinks && Object.entries(footerData.socialLinks).map(([key, link]) => (
-                                    <a key={key} href={link} target="_blank" rel="noopener noreferrer"
-                                        className="w-7 h-7 border border-slate-100 rounded-md flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300">
-                                        {socialIconMap[key]}
-                                    </a>
-                                ))}
+                            <div className="pt-2">
+                                <h5 className="text-[14px] font-bold text-[#002b80] mb-2">Follow us on</h5>
+                                <div className="flex gap-3">
+                                    {[
+                                        { icon: <LinkedInIcon sx={{ fontSize: 18 }} />, link: "#" },
+                                        { icon: <FacebookIcon sx={{ fontSize: 18 }} />, link: "#" },
+                                        { icon: <InstagramIcon sx={{ fontSize: 18 }} />, link: "#" },
+                                        { icon: <TwitterIcon sx={{ fontSize: 18 }} />, link: "#" },
+                                        { icon: <YouTubeIcon sx={{ fontSize: 18 }} />, link: "#" }
+                                    ].map((social, i) => (
+                                        <a key={i} href={social.link} 
+                                           className="w-9 h-9 rounded-lg border border-slate-100 flex items-center justify-center text-[#002b80] hover:bg-[#002b80] hover:text-white transition-all duration-300">
+                                            {social.icon}
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* 2. Locations (Spans 2) */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-[#002b80] font-bold text-sm mb-5 uppercase tracking-wider">Locations</h4>
-                        <div className="space-y-3">
-                            {footerData.address?.map((loc, i) => (
-                                <a key={i} href={loc.mapLink} target="_blank" rel="noopener noreferrer" 
-                                   className="block text-[13px] text-slate-500 hover:text-blue-600 leading-relaxed transition-colors">
-                                    {loc.text}
-                                </a>
-                            ))}
+                    {/* 2. Locations */}
+                    <div className="lg:col-span-3">
+                        <h4 className="text-[#002b80] font-bold text-lg mb-4">Locations</h4>
+                        <div className="space-y-2">
+                            <div>
+                                <p className="text-[14px] text-slate-400 leading-relaxed">
+                                    UAE - Al Wahda Street, GIBCA, Dubai
+                                </p>
+                            </div>
+                            <div>
+                                <p className="text-[14px] text-slate-400 leading-relaxed">
+                                    Pakistan - North Karachi, Sector 9, Karachi
+                                </p>
+                            </div>
+                            {/* Replicated as per image mockup */}
+                            <div>
+                                <p className="text-[14px] text-slate-400 leading-relaxed">
+                                    UAE - Al Wahda Street, GIBCA, Dubai
+                                </p>
+                            </div>
+                            <div>
+                                <p className="text-[14px] text-slate-400 leading-relaxed">
+                                    Pakistan - North Karachi, Sector 9, Karachi
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* 3. Company (Spans 2) */}
+                    {/* 3. Company */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-[#002b80] font-bold text-sm mb-5 uppercase tracking-wider">Company</h4>
-                        <ul className="space-y-2.5">
-                            {footerData?.companySection.map((s, i) => (
-                                <li key={i}>
-                                    <NavLink to={s.link} className="text-[13px] text-slate-500 hover:text-blue-600 transition-colors">{s.title}</NavLink>
+                        <h4 className="text-[#002b80] font-bold text-lg mb-4">Company</h4>
+                        <ul className="space-y-1.5">
+                            {['About Us', 'Services', 'Industries'].map((item) => (
+                                <li key={item}>
+                                    <NavLink to={`/${item.toLowerCase().replace(' ', '-')}`} 
+                                             className="text-[14px] text-slate-400 hover:text-[#002b80] transition-colors">
+                                        {item}
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* 4. Services (Spans 2) */}
+                    {/* 4. Services */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-[#002b80] font-bold text-sm mb-5 uppercase tracking-wider">Services</h4>
-                        <ul className="space-y-2.5">
-                            {services.map((s, i) => (
-                                <li key={i}>
-                                    <NavLink to={s.link} className="text-[13px] text-slate-500 hover:text-blue-600 transition-colors">{s.name}</NavLink>
+                        <h4 className="text-[#002b80] font-bold text-lg mb-4">Services</h4>
+                        <ul className="space-y-1.5">
+                            {mockServices.map((s) => (
+                                <li key={s.name}>
+                                    <NavLink to={s.link} className="text-[14px] text-slate-400 hover:text-[#002b80] transition-colors">
+                                        {s.name}
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* 5. Industries (Spans 3) */}
-                    <div className="lg:col-span-2 lg:ml-8  ">
-                        <h4 className="text-[#002b80]  font-bold text-sm mb-5 uppercase tracking-wider">Industries</h4>
-                        <ul className="space-y-2.5">
-                            {industries.map((ind, i) => (
-                                <li key={i}>
-                                    <NavLink to={ind.link} className="text-[13px] text-slate-500 hover:text-blue-600 transition-colors">{ind.name}</NavLink>
+                    {/* 5. Industries */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-[#002b80] font-bold text-lg mb-4">Industries</h4>
+                        <ul className="space-y-1.5">
+                            {mockIndustries.map((ind) => (
+                                <li key={ind.name}>
+                                    <NavLink to={ind.link} className="text-[14px] text-slate-400 hover:text-[#002b80] transition-colors">
+                                        {ind.name}
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
@@ -141,12 +172,10 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="mt-12 pt-6 border-t border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-400 tracking-wide uppercase font-semibold">
-                    <p>© {new Date().getFullYear()} Hexainsights. All Rights Reserved.</p>
-                    <div className="flex items-center gap-1">
-                        <span>Powered By</span>
-                        <span className="text-[#002b80]">Codenthic</span>
-                    </div>
+                <div className="mt-10 pt-4 border-t flex justify-center items-center border-slate-50">
+                    <p className="text-[13px] text-slate-400 font-medium">
+                        Copyright Hexainsights. All Rights Reserved. Powered By Codenthic
+                    </p>
                 </div>
             </div>
         </footer>

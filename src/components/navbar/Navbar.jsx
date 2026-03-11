@@ -95,6 +95,14 @@ const Navbar = () => {
           </div>
         ))}
 
+        <NavLink 
+          to="/blogs" 
+          className={({ isActive }) => 
+            `transition-all font-bold px-3 py-1 rounded-lg ${isActive ? 'text-blue-700 bg-blue-50' : 'text-slate-800 hover:text-blue-600 hover:bg-slate-50'}`
+          }
+        >
+          Blogs
+        </NavLink>
         <NavLink to="/about" className="hover:text-blue-600 transition-colors">About Us</NavLink>
 
         {/* Button - Reduced padding and text size */}
@@ -160,6 +168,15 @@ const Navbar = () => {
                 </div>
               ))}
               
+              <NavLink 
+                to="/blogs" 
+                onClick={() => setDrawerOpen(false)} 
+                className={({ isActive }) => 
+                  `font-bold text-base p-2.5 rounded-xl ${isActive ? 'text-blue-700 bg-blue-50' : 'text-slate-800'}`
+                }
+              >
+                Blogs
+              </NavLink>
               <NavLink to="/about" onClick={() => setDrawerOpen(false)} className="font-semibold text-base p-2.5 text-slate-800">About Us</NavLink>
               
                <a 

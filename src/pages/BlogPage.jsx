@@ -1,57 +1,96 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
-import { doc, getDoc } from 'firebase/firestore'; // Direct document imports
+import { collection, getDocs } from 'firebase/firestore'; 
 
-import Contact from '../components/homepage/Contact';
-import ProjectComponent from '../components/caseStudy/ProjectComponent';
+import ContactCard from '../components/contact/ContactCard';
+import BlogComponent from '../components/blog/BlogComponent';
 import Reloader from '../components/Reloader/Reloader';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/navbar/Navbar';
 
-function Blog() {
-    const { uid } = useParams(); // This is the Firestore Document ID
-    const navigate = useNavigate();
+const BLOGS_COLLECTION = "hexainsighs-blog";
+
+function BlogPage() {
+    const { uid } = useParams(); // Index of the blog in the array
+    const navigate = useNavigate(); 
     
-    const [projectData, setProjectData] = useState(null);
+    const [blogData, setBlogData] = useState(null);
+    const [uploadDate, setUploadDate] = useState("");
+    const [relatedBlogs, setRelatedBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchCaseStudy = async () => {
-            if (!uid) return;
-        window.scrollTo(0, 0);
-            
+        const fetchBlog = async () => {
+            window.scrollTo(0, 0);
             try {
                 setLoading(true);
-                
-                // Direct reference using the Document ID from params
-                const docRef = doc(db, "caseStudiesDB", uid);
-                const docSnap = await getDoc(docRef);
+                const querySnapshot = await getDocs(collection(db, BLOGS_COLLECTION));
 
-                if (docSnap.exists()) {
-                    // Extract data and include the ID
-                    setProjectData({ id: docSnap.id, ...docSnap.data() });
+                if (!querySnapshot.empty) {
+                    const docData = querySnapshot.docs[0].data();
+                    const allBlogs = docData.subsection?.blogs || [];
+                    const index = parseInt(uid);
+
+                    if (allBlogs && allBlogs[index]) {
+                        const currentBlog = allBlogs[index];
+                        setBlogData(currentBlog);
+                        setUploadDate(docData?.uploadDate || "");
+
+                        // Fetch related blogs from same category
+                        let related = allBlogs
+                            .map((b, i) => ({ ...b, originalIndex: i }))
+                            .filter(b => b.originalIndex !== index); // Exclude current
+
+                        if (currentBlog?.category) {
+                            const categoryMatches = related.filter(b => b.category === currentBlog.category);
+                            if (categoryMatches.length > 0) {
+                                related = categoryMatches;
+                            }
+                        }
+
+                        related = related
+                            .sort((a, b) => (b.originalIndex || 0) - (a.originalIndex || 0))
+                            .slice(0, 6);
+                        
+                        setRelatedBlogs(related);
+                    } else {
+                        console.error("Blog index out of bounds:", index);
+                        navigate('/blogs');
+                    }
                 } else {
-                    console.error("No document found in caseStudiesDB with ID:", uid);
-                    navigate('/'); 
+                    console.error("No blogs found in database");
+                    navigate('/blogs');
                 }
             } catch (error) {
-                console.error("Firestore Fetch Error:", error);
-                navigate('/');
+                console.error("Error fetching blog:", error);
+                navigate('/blogs');
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchCaseStudy();
+        if (uid !== undefined) {
+            fetchBlog();
+        } else {
+            navigate('/blogs');
+        }
     }, [uid, navigate]);
 
     if (loading) return <Reloader />;
 
     return (
-        <>
-            {projectData && <ProjectComponent data={projectData} />}
-            <Contact />
-        </>
+        <div className="min-h-screen bg-white">
+            {blogData && (
+                <BlogComponent 
+                    data={blogData} 
+                    uploadDate={uploadDate} 
+                    relatedBlogs={relatedBlogs} 
+                />
+            )}
+            <ContactCard />
+        </div>
     );
 }
 
-export default Blog;
+export default BlogPage;
